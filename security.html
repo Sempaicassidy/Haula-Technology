@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Haula Security & Cyber Operations — Professional Security Guard Training Academy, Security Firm ERP Software, and Enterprise Cyber Security Threat Intelligence." />
+    <meta name="theme-color" content="#f8fafc" />
+    <title>Haula Security & Cyber | Smart Life, Real Value</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/imgs/logo.png" />
+
+    <!-- Google Fonts: Space Grotesk & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="styles.css?v=19.0" />
+  </head>
+  <body>
+
+    <!-- Deepin OS Floating Glass Dock Header -->
+    <header class="deepin-dock-header" id="top">
+      <div class="dock-inner">
+        <a class="hyper-brand" href="index.html" aria-label="Haula Enterprises">
+          <img src="assets/imgs/logo.png" alt="Haula Enterprises Logo" class="header-logo-img" />
+          <div class="brand-text-col">
+            <span class="hyper-brand-name">HAULA ENTERPRISES<span class="mi-dot"></span></span>
+            <span class="hyper-brand-slogan">Smart Life, Real Value</span>
+          </div>
+        </a>
+
+        <nav class="dock-nav" aria-label="Main Navigation">
+          <a href="index.html" data-sw="Mwanzo" data-en="Home">Home</a>
+          <a href="index.html#about" data-sw="Kuhusu Sisi" data-en="About Us">About Us</a>
+
+          <!-- Divisions Dropdown Menu -->
+          <div class="nav-dropdown-wrapper">
+            <button class="nav-dropdown-btn" aria-haspopup="true" aria-expanded="false">
+              <span data-sw="Idara Zetu (5)" data-en="Divisions (5)">Divisions (5)</span>
+              <svg class="dropdown-chevron" viewBox="0 0 20 20" fill="currentColor" width="14" height="14">
+                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+              </svg>
+            </button>
+
+            <div class="nav-dropdown-menu" role="menu">
+              <a href="transportation.html" class="dropdown-item" role="menuitem">
+                <span class="d-icon">🚚</span>
+                <div class="d-txt">
+                  <strong data-sw="Transportation" data-en="Transportation">Transportation <small class="soon-badge" style="background:rgba(16,185,129,0.15); color:#10b981;">LIVE</small></strong>
+                  <small data-sw="Usafirishaji wa mizigo mizito & mepesi" data-en="Heavy cargo haulage & logistics">Heavy cargo haulage & logistics</small>
+                </div>
+              </a>
+
+              <a href="trading.html" class="dropdown-item" role="menuitem">
+                <span class="d-icon">🌐</span>
+                <div class="d-txt">
+                  <strong data-sw="Trading & Customs" data-en="Trading & Customs">Trading & Customs <small class="soon-badge" style="background:rgba(16,185,129,0.15); color:#10b981;">LIVE</small></strong>
+                  <small data-sw="Biashara ya kimataifa & kutoa mizigo bandarini" data-en="Global trade & express port clearance">Global trade & express port clearance</small>
+                </div>
+              </a>
+
+              <a href="security.html" class="dropdown-item" role="menuitem">
+                <span class="d-icon">🛡️</span>
+                <div class="d-txt">
+                  <strong data-sw="Security & Cyber" data-en="Security & Cyber">Security & Cyber <small class="soon-badge" style="background:rgba(139,92,246,0.15); color:var(--hyper-purple);">LIVE</small></strong>
+                  <small data-sw="Mafunzo ya ulinzi, software & Cyber Security" data-en="Guard Academy, Security ERP & Cyber Security">Guard Academy, Security ERP & Cyber Security</small>
+                </div>
+              </a>
+
+              <a href="technologies.html" class="dropdown-item" role="menuitem">
+                <span class="d-icon">⚡</span>
+                <div class="d-txt">
+                  <strong data-sw="Technologies" data-en="Technologies">Technologies</strong>
+                  <small data-sw="Mifumo ya Software & Networking" data-en="Software & Networking Infrastructure">Software & Networking Infrastructure</small>
+                </div>
+              </a>
+
+              <a href="techhub.html" class="dropdown-item" role="menuitem">
+                <span class="d-icon">🚀</span>
+                <div class="d-txt">
+                  <strong data-sw="Technology Hub" data-en="Technology Hub">Technology Hub <small class="soon-badge" style="background:rgba(0,242,254,0.15); color:#0284c7;">LIVE</small></strong>
+                  <small data-sw="Mafunzo ya ICT, AI & Startup Incubator" data-en="AI Innovation, ICT Bootcamps & Incubator">AI Innovation, ICT Bootcamps & Incubator</small>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <a href="index.html#faq" data-sw="Maswali (FAQ)" data-en="FAQ">FAQ</a>
+          <a href="index.html#testimonials" data-sw="Ushuhuda" data-en="Reviews">Reviews</a>
+          <a href="index.html#partners" data-sw="Washirika" data-en="Partners">Partners</a>
+          <a href="#contact" data-sw="Mawasiliano" data-en="Contacts">Contacts</a>
+        </nav>
+
+        <div class="dock-actions">
+          <button class="hyper-lang-btn" id="langToggle">
+            <span id="langEN" class="active-lang">EN</span>
+            <span class="sep">/</span>
+            <span id="langSW">SW</span>
+          </button>
+          <a href="#contact" class="hyper-btn-orange" style="background:var(--hyper-purple);" data-sw="Omba Audit" data-en="Cyber Audit">Cyber Audit</a>
+          <button class="mobile-menu-toggle" id="mobileMenuBtn" aria-label="Toggle Navigation">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Mobile Navigation Drawer -->
+    <div class="mobile-drawer-menu" id="mobileDrawerMenu">
+      <div class="mobile-drawer-inner">
+        <a href="index.html" class="m-link" data-sw="🏠 Mwanzo" data-en="🏠 Home">🏠 Home</a>
+        <a href="index.html#about" class="m-link" data-sw="🏢 Kuhusu Sisi" data-en="🏢 About Us">🏢 About Us</a>
+        <div class="m-dropdown-header">OUR 5 CORE DIVISIONS</div>
+        <a href="transportation.html" class="m-link">🚚 Transportation Logistics</a>
+        <a href="trading.html" class="m-link">🌐 Trading & Customs Clearance</a>
+        <a href="security.html" class="m-link">🛡️ Security & Cyber Operations</a>
+        <a href="technologies.html" class="m-link">⚡ Technologies (Dawafy OS)</a>
+        <a href="techhub.html" class="m-link">🚀 Technology Hub & AI Lab</a>
+        <hr style="border:none; border-top:1px solid rgba(0,0,0,0.06); margin:8px 0;" />
+        <a href="index.html#faq" class="m-link" data-sw="❓ Maswali (FAQ)" data-en="❓ FAQ">❓ FAQ</a>
+        <a href="index.html#testimonials" class="m-link" data-sw="⭐️ Ushuhuda" data-en="⭐️ Testimonials">⭐️ Testimonials</a>
+        <a href="#contact" class="m-link" data-sw="📞 Mawasiliano" data-en="📞 Contacts">📞 Contacts</a>
+      </div>
+    </div>
+
+    <main class="fusion-container">
+
+      <!-- HERO SECTION -->
+      <section class="tesla-hero-section page-hero-security" id="hero">
+        <div class="hero-bg-media" style="background-image: url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=2400&q=85');"></div>
+        <div class="hero-vignette"></div>
+
+        <div class="tesla-hero-top-text">
+          <div class="hyper-pill-tag" style="background:rgba(139,92,246,0.15); border-color:rgba(139,92,246,0.4);">
+            <span class="pulse-dot" style="background:#8b5cf6;"></span>
+            <span style="color:#a78bfa;" data-sw="HAULA SECURITY // GUARD ACADEMY & CYBER DEFENSE" data-en="HAULA SECURITY // GUARD ACADEMY & CYBER DEFENSE">HAULA SECURITY // GUARD ACADEMY & CYBER DEFENSE</span>
+          </div>
+
+          <h1 class="tesla-hero-h1" data-sw="Elimu ya Ulinzi, Security Systems & Cyber Security" data-en="Security Academy, Guard Patrol ERP & Cyber Security">
+            Security Academy, Guard Patrol ERP & Cyber Security
+          </h1>
+          <p class="tesla-hero-p" data-sw="Smart Life, Real Value — Haula Security inatoa mafunzo ya kisasa ya ulinzi kwa makampuni ya ulinzi (Security Companies), mifumo ya dijitali ya usimamizi wa walinzi (Guard Patrol Software), na ulinzi wa mifumo ya mtandao (Enterprise Cyber Security Threat Defense)." data-en="Smart Life, Real Value — Empowering security firms with accredited physical guard capacity building, automated Guard Patrol ERP software systems, and enterprise-grade Cyber Security threat intelligence.">
+            Smart Life, Real Value — Empowering security firms with accredited physical guard capacity building, automated Guard Patrol ERP software systems, and enterprise-grade Cyber Security threat intelligence.
+          </p>
+
+          <div class="hero-action-buttons">
+            <a href="#audit" class="hyper-btn-orange" style="background:var(--hyper-purple);" data-sw="🔒 Omba Audit ya Cyber Security" data-en="🔒 Request Cyber Security Audit">🔒 Request Cyber Security Audit</a>
+            <a href="#academy" class="hyper-btn-glass" data-sw="🎓 Mafunzo ya Makampuni ya Ulinzi" data-en="🎓 Guard Academy Training">🎓 Guard Academy Training</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- STATS BAR -->
+      <section class="deepin-stats-strip">
+        <div class="stats-grid">
+          <div class="stat-card">
+            <span class="stat-num">2,500+</span>
+            <span class="stat-label" data-sw="Walinzi Waliopata Mafunzo" data-en="Guards Trained & Certified">Guards Trained & Certified</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-num">99.9%</span>
+            <span class="stat-label" data-sw="Ufanisi wa Cyber Threat Defense" data-en="Cyber Threat Defense Rate">Cyber Threat Defense Rate</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-num">24/7</span>
+            <span class="stat-label" data-sw="SOC Operations & Patrol Telemetry" data-en="24/7 Patrol Telemetry & SOC">24/7 Patrol Telemetry & SOC</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-num">40+</span>
+            <span class="stat-label" data-sw="Makampuni ya Ulinzi Yaliyosajiliwa" data-en="Client Security Enterprises">Client Security Enterprises</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- PILLARS SHOWCASE -->
+      <section class="section-container" id="academy" style="padding: 80px 24px;">
+        <div class="text-center" style="margin-bottom: 48px;">
+          <span class="section-kicker" data-sw="HUDUMA ZA SECURITY & CYBER" data-en="HAULA SECURITY CAPABILITIES">HAULA SECURITY CAPABILITIES</span>
+          <h2 class="section-title" data-sw="Elimu ya Ulinzi & Cyber Defense" data-en="Security Firm Academy & Cyber Solutions">Security Firm Academy & Cyber Solutions</h2>
+        </div>
+
+        <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:24px;">
+          <div class="hyper-glass-card" style="padding: 28px;">
+            <div style="font-size:36px; margin-bottom:12px;">🛡️</div>
+            <h3 style="font-family:var(--font-heading); margin-bottom:8px;" data-sw="Security Guard Training Academy" data-en="Guard Capacity Building Academy">Guard Capacity Building Academy</h3>
+            <p style="font-size:14px; color:#475569;" data-sw="Mafunzo ya mbinu za ulinzi, nidhamu, huduma za kwanza, na kuzuia uhalifu kwa walinzi wa makampuni binafsi." data-en="Accredited training modules for private security officers: tactical defense, VIP protection, conflict de-escalation, and emergency protocols.">Accredited training modules for private security officers: tactical defense, VIP protection, conflict de-escalation, and emergency protocols.</p>
+          </div>
+
+          <div class="hyper-glass-card" style="padding: 28px;">
+            <div style="font-size:36px; margin-bottom:12px;">📱</div>
+            <h3 style="font-family:var(--font-heading); margin-bottom:8px;" data-sw="Guard Patrol & Security ERP Software" data-en="Guard Patrol & ERP Software">Guard Patrol & ERP Software</h3>
+            <p style="font-size:14px; color:#475569;" data-sw="Mfumo wa kidijitali wa kufuatilia doria za walinzi kwa RFID/GPS (Guard Patrol System) na ratiba za kazi za usiku." data-en="Comprehensive ERP software platform for security managers: RFID checkpoint patrols, digital incident reporting, and real-time shift scheduling.">Comprehensive ERP software platform for security managers: RFID checkpoint patrols, digital incident reporting, and real-time shift scheduling.</p>
+          </div>
+
+          <div class="hyper-glass-card" style="padding: 28px;">
+            <div style="font-size:36px; margin-bottom:12px;">💻</div>
+            <h3 style="font-family:var(--font-heading); margin-bottom:8px;" data-sw="Enterprise Cyber Security Defense" data-en="Enterprise Cyber Security & Auditing">Enterprise Cyber Security & Auditing</h3>
+            <p style="font-size:14px; color:#475569;" data-sw="Kukagua usalama wa mifumo ya kompyuta (Penetration Testing), kulinda data za benki/taasisi, na kuzuia Cyber Attacks." data-en="Proactive vulnerability assessments, ethical hacking audits, malware defense, and Security Operations Center (SOC) monitoring.">Proactive vulnerability assessments, ethical hacking audits, malware defense, and Security Operations Center (SOC) monitoring.</p>
+          </div>
+
+          <div class="hyper-glass-card" style="padding: 28px;">
+            <div style="font-size:36px; margin-bottom:12px;">📹</div>
+            <h3 style="font-family:var(--font-heading); margin-bottom:8px;" data-sw="CCTV & Physical Security Systems" data-en="CCTV & Access Control Systems">CCTV & Access Control Systems</h3>
+            <p style="font-size:14px; color:#475569;" data-sw="Usimikaji wa kamera za AI CCTV, Biometric Fingerprint/Face ID door locks, na Electric Fencing systems." data-en="High-definition IP surveillance cameras, biometric access control turnstiles, smart perimeter electric fencing, and intrusion alarms.">High-definition IP surveillance cameras, biometric access control turnstiles, smart perimeter electric fencing, and intrusion alarms.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- CYBER SECURITY AUDIT REQUEST FORM -->
+      <section class="section-container" id="audit" style="padding: 40px 24px 80px;">
+        <div class="hyper-glass-card" style="padding: 40px; border-radius: 28px; background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(248,250,252,0.95)); border:1px solid rgba(139,92,246,0.3);">
+          <div class="text-center" style="margin-bottom: 32px;">
+            <span class="section-kicker" style="color:var(--hyper-purple);" data-sw="CYBER THREAT ASSESSMENT" data-en="CYBER THREAT ASSESSMENT">CYBER THREAT ASSESSMENT</span>
+            <h2 class="section-title" data-sw="Omba Audit ya Usalama wa Mtandao (Cyber Audit)" data-en="Request Enterprise Cyber Security Vulnerability Audit">Request Enterprise Cyber Security Vulnerability Audit</h2>
+          </div>
+
+          <form id="cyberAuditForm" style="max-width:640px; margin:0 auto; display:flex; flex-direction:column; gap:16px;">
+            <input type="text" placeholder="Company / Institution Name" required style="padding:14px; border-radius:12px; border:1px solid rgba(0,0,0,0.12);" />
+            <input type="email" placeholder="Official Email Address" required style="padding:14px; border-radius:12px; border:1px solid rgba(0,0,0,0.12);" />
+            <select id="auditServiceType" style="padding:14px; border-radius:12px; border:1px solid rgba(0,0,0,0.12);">
+              <option value="Web & Network Penetration Testing">Web Application & Network Penetration Testing</option>
+              <option value="Security Company Guard Patrol Software Demo">Security Guard Patrol Software ERP Demo</option>
+              <option value="Guard Academy Capacity Training">Security Guard Firm Staff Training & Certification</option>
+              <option value="CCTV & Biometric Infrastructure">CCTV & Biometric Access Control Installation</option>
+            </select>
+            <textarea placeholder="Describe your current IT infrastructure or security firm capacity training requirements..." rows="4" required style="padding:14px; border-radius:12px; border:1px solid rgba(0,0,0,0.12);"></textarea>
+            <button type="submit" class="hyper-btn-orange" style="background:var(--hyper-purple); padding:14px; font-weight:700;" data-sw="Tuma Ombi la Audit" data-en="Submit Security Audit Request">Submit Security Audit Request</button>
+            <div id="cyberFormStatus" style="font-size:14px; color:#8b5cf6; text-align:center; font-weight:600;"></div>
+          </form>
+        </div>
+      </section>
+
+      <!-- CONTACT INQUIRY SECTION -->
+      <section class="section-container" id="contact" style="padding: 40px 24px 80px;">
+        <div class="text-center" style="margin-bottom: 40px;">
+          <span class="section-kicker" data-sw="MAWASILIANO YA SECURITY DIVISION" data-en="SECURITY DIVISION DESK">SECURITY DIVISION DESK</span>
+          <h2 class="section-title" data-sw="Wasiliana na Timu ya Haula Security" data-en="Contact Security & Cyber Operations">Contact Security & Cyber Operations</h2>
+        </div>
+
+        <div style="max-width: 680px; margin:0 auto;" class="hyper-glass-card">
+          <form id="secContactForm" style="padding:32px; display:flex; flex-direction:column; gap:16px;">
+            <input type="text" placeholder="Your Name" required style="padding:14px; border-radius:12px; border:1px solid rgba(0,0,0,0.12);" />
+            <input type="email" placeholder="Email Address" required style="padding:14px; border-radius:12px; border:1px solid rgba(0,0,0,0.12);" />
+            <input type="text" placeholder="Phone Number / WhatsApp" required style="padding:14px; border-radius:12px; border:1px solid rgba(0,0,0,0.12);" />
+            <textarea placeholder="Your inquiry regarding Guard Academy, ERP software, or Cyber defense..." rows="4" required style="padding:14px; border-radius:12px; border:1px solid rgba(0,0,0,0.12);"></textarea>
+            <button type="submit" class="hyper-btn-orange" style="background:var(--hyper-purple); padding:14px; font-weight:700;" data-sw="Tuma Ujumbe" data-en="Send Security Inquiry">Send Security Inquiry</button>
+            <div id="secFormStatus" style="font-size:14px; color:#10b981; text-align:center; font-weight:600;"></div>
+          </form>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="hyper-footer" style="margin-top: 60px;">
+      <div class="section-container">
+        <div class="footer-grid">
+          <div class="f-col main-brand-col">
+            <a href="index.html" class="footer-brand">
+              <img src="assets/imgs/logo.png" alt="Haula Enterprises Logo" class="footer-logo-img" />
+              <span class="f-brand-name">HAULA ENTERPRISES</span>
+            </a>
+            <p class="f-tagline" data-sw="Smart Life, Real Value — Usafirishaji, Biashara, Security, Software Services & Technology Hub." data-en="Smart Life, Real Value — Transportation, Trading, Security, Software Engineering & Technology Hub.">
+              Smart Life, Real Value — Transportation, Trading, Security, Software Engineering & Technology Hub.
+            </p>
+          </div>
+
+          <div class="f-col">
+            <h4 class="f-heading" data-sw="Idara Zetu (5)" data-en="Our 5 Divisions">Our 5 Divisions</h4>
+            <ul class="f-links">
+              <li><a href="transportation.html">🚚 Haula Transportation</a></li>
+              <li><a href="trading.html">🌐 Haula Trading & Customs</a></li>
+              <li><a href="security.html">🛡️ Haula Security & Cyber</a></li>
+              <li><a href="technologies.html">⚡ Haula Technologies</a></li>
+              <li><a href="techhub.html">🚀 Haula Technology Hub</a></li>
+            </ul>
+          </div>
+
+          <div class="f-col">
+            <h4 class="f-heading" data-sw="Mawasiliano" data-en="Direct Contacts">Direct Contacts</h4>
+            <div class="c-info-list">
+              <p>📍 Dar es Salaam, Tanzania</p>
+              <p>📞 <a href="tel:+255713000000">+255 713 000 000</a></p>
+              <p>✉️ <a href="mailto:info@haula.co.tz">info@haula.co.tz</a></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>© <span id="currentYear">2026</span> Haula Enterprises. All Rights Reserved. Smart Life, Real Value.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js?v=19.0"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const cyberAuditForm = document.getElementById('cyberAuditForm');
+        const cyberFormStatus = document.getElementById('cyberFormStatus');
+
+        if (cyberAuditForm) {
+          cyberAuditForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const inputs = cyberAuditForm.querySelectorAll('input, select, textarea');
+            const payload = {
+              name: inputs[0].value,
+              email: inputs[1].value,
+              dept: 'Haula Security: Cyber Audit / Guard Academy Request',
+              msg: `[Service: ${inputs[2].value}] ${inputs[3].value}`
+            };
+
+            fetch('api/messages', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(payload)
+            }).catch(() => {
+              fetch('backend/api_messages.php?action=submit', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+              });
+            });
+
+            if (cyberFormStatus) {
+              cyberFormStatus.textContent = '✓ Your Security Audit request has been dispatched! Our cybersecurity operations team will contact you shortly.';
+              cyberAuditForm.reset();
+            }
+          });
+        }
+
+        const secContactForm = document.getElementById('secContactForm');
+        const secFormStatus = document.getElementById('secFormStatus');
+        if (secContactForm) {
+          secContactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const inputs = secContactForm.querySelectorAll('input, textarea');
+            const payload = {
+              name: inputs[0].value,
+              email: inputs[1].value,
+              dept: 'Haula Security: General Inquiry',
+              msg: `[Phone: ${inputs[2].value}] ${inputs[3].value}`
+            };
+
+            fetch('api/messages', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(payload)
+            }).catch(() => {
+              fetch('backend/api_messages.php?action=submit', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+              });
+            });
+
+            if (secFormStatus) {
+              secFormStatus.textContent = '✓ Your message has been sent to Haula Security team!';
+              secContactForm.reset();
+            }
+          });
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Haula Technologies — Smart Life, Real Value. Software Development Services (Dawafy OS, Tanzanite Insights, Taskora) and Networking ICT Infrastructure." />
+    <meta name="theme-color" content="#f8fafc" />
+    <title>Haula Technologies | Smart Life, Real Value</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/imgs/logo.png" />
+
+    <!-- Google Fonts: Space Grotesk & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="styles.css?v=19.0" />
+  </head>
+  <body>
+
+    <!-- Deepin OS Floating Glass Dock Header -->
+    <header class="deepin-dock-header" id="top">
+      <div class="dock-inner">
+        <!-- Haula Official Brand Logo Emblem -->
+        <a class="hyper-brand" href="index.html" aria-label="Haula Enterprises">
+          <img src="assets/imgs/logo.png" alt="Haula Enterprises Logo" class="header-logo-img" />
+          <div class="brand-text-col">
+            <span class="hyper-brand-name">HAULA ENTERPRISES<span class="mi-dot"></span></span>
+            <span class="hyper-brand-slogan">Smart Life, Real Value</span>
+          </div>
+        </a>
+
+        <!-- Clean Navigation -->
+        <nav class="dock-nav" aria-label="Main Navigation">
+          <a href="index.html" data-sw="Mwanzo" data-en="Home">Home</a>
+          <a href="index.html#about" data-sw="Kuhusu Sisi" data-en="About Us">About Us</a>
+
+          <!-- Divisions Dropdown Menu (Includes 5 Core Divisions) -->
+          <div class="nav-dropdown-wrapper">
+            <button class="nav-dropdown-btn" aria-haspopup="true" aria-expanded="false">
+              <span data-sw="Idara Zetu (5)" data-en="Divisions (5)">Divisions (5)</span>
+              <svg class="dropdown-chevron" viewBox="0 0 20 20" fill="currentColor" width="14" height="14">
+                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+              </svg>
+            </button>
+
+            <div class="nav-dropdown-menu" role="menu">
+              <a href="transportation.html" class="dropdown-item" role="menuitem">
+                <span class="d-icon">🚚</span>
+                <div class="d-txt">
+                  <strong data-sw="Transportation" data-en="Transportation">Transportation <small class="soon-badge" style="background:rgba(16,185,129,0.15); color:#10b981;">LIVE</small></strong>
+                  <small data-sw="Usafirishaji wa mizigo mizito & mepesi" data-en="Heavy cargo haulage & logistics">Heavy cargo haulage & logistics</small>
+                </div>
+              </a>
+
+              <a href="trading.html" class="dropdown-item" role="menuitem">
+                <span class="d-icon">🌐</span>
+                <div class="d-txt">
+                  <strong data-sw="Trading & Customs" data-en="Trading & Customs">Trading & Customs <small class="soon-badge" style="background:rgba(16,185,129,0.15); color:#10b981;">LIVE</small></strong>
+                  <small data-sw="Biashara ya kimataifa & kutoa mizigo bandarini" data-en="Global trade & express port clearance">Global trade & express port clearance</small>
+                </div>
+              </a>
+
+              <a href="security.html" class="dropdown-item" role="menuitem">
+                <span class="d-icon">🛡️</span>
+                <div class="d-txt">
+                  <strong data-sw="Security & Cyber" data-en="Security & Cyber">Security & Cyber <small class="soon-badge" style="background:rgba(139,92,246,0.15); color:var(--hyper-purple);">LIVE</small></strong>
+                  <small data-sw="Guard Academy, Security ERP & Cyber Security" data-en="Guard Academy, Security ERP & Cyber Security">Guard Academy, Security ERP & Cyber Security</small>
+                </div>
+              </a>
+
+              <a href="technologies.html" class="dropdown-item" role="menuitem">
+                <span class="d-icon">⚡</span>
+                <div class="d-txt">
+                  <strong data-sw="Technologies" data-en="Technologies">Technologies</strong>
+                  <small data-sw="Mifumo ya Software & Networking" data-en="Software & Networking Infrastructure">Software & Networking Infrastructure</small>
+                </div>
+              </a>
+
+              <a href="techhub.html" class="dropdown-item" role="menuitem">
+                <span class="d-icon">🚀</span>
+                <div class="d-txt">
+                  <strong data-sw="Technology Hub" data-en="Technology Hub">Technology Hub <small class="soon-badge" style="background:rgba(0,242,254,0.15); color:#0284c7;">LIVE</small></strong>
+                  <small data-sw="ICT Academy, AI Solutions & Tech Incubator" data-en="ICT Academy, AI Solutions & Tech Incubator">ICT Academy, AI Solutions & Tech Incubator</small>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <a href="index.html#faq" data-sw="Maswali (FAQ)" data-en="FAQ">FAQ</a>
+          <a href="index.html#testimonials" data-sw="Ushuhuda" data-en="Reviews">Reviews</a>
+          <a href="index.html#partners" data-sw="Washirika" data-en="Partners">Partners</a>
+          <a href="#contact" data-sw="Mawasiliano" data-en="Contacts">Contacts</a>
+        </nav>
+
+        <!-- Actions -->
+        <div class="dock-actions">
+          <button class="hyper-lang-btn" id="langToggle">
+            <span id="langEN" class="active-lang">EN</span>
+            <span class="sep">/</span>
+            <span id="langSW">SW</span>
+          </button>
+          <a href="#contact" class="hyper-btn-orange" data-sw="Mawasiliano" data-en="Connect">Connect</a>
+          <button class="mobile-menu-toggle" id="mobileMenuBtn" aria-label="Toggle Navigation">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Mobile Navigation Glass Drawer Menu -->
+    <div class="mobile-drawer-menu" id="mobileDrawerMenu">
+      <div class="mobile-drawer-inner">
+        <a href="index.html" class="m-link" data-sw="🏠 Mwanzo" data-en="🏠 Home">🏠 Home</a>
+        <a href="index.html#about" class="m-link" data-sw="🏢 Kuhusu Sisi" data-en="🏢 About Us">🏢 About Us</a>
+        <div class="m-dropdown-header">OUR 5 CORE DIVISIONS</div>
+        <a href="javascript:void(0)" class="m-link loader-trigger" data-module="transport">🚚 Transportation <small class="soon-badge">LOADING...</small></a>
+        <a href="javascript:void(0)" class="m-link loader-trigger" data-module="trading">🌐 Trading & Customs <small class="soon-badge">LOADING...</small></a>
+        <a href="javascript:void(0)" class="m-link loader-trigger" data-module="security">🛡️ Security Academy & Systems <small class="soon-badge" style="background:rgba(139,92,246,0.15); color:var(--hyper-purple);">NEW</small></a>
+        <a href="technologies.html" class="m-link">⚡ Technologies (Dawafy OS)</a>
+        <a href="javascript:void(0)" class="m-link loader-trigger" data-module="techhub">🚀 Tech Hub & Academy <small class="soon-badge" style="background:rgba(0,242,254,0.15); color:#0284c7;">5TH DIV</small></a>
+        <hr style="border:none; border-top:1px solid rgba(0,0,0,0.06); margin:8px 0;" />
+        <a href="index.html#faq" class="m-link" data-sw="❓ Maswali (FAQ)" data-en="❓ FAQ">❓ FAQ</a>
+        <a href="index.html#testimonials" class="m-link" data-sw="⭐️ Ushuhuda" data-en="⭐️ Testimonials">⭐️ Testimonials</a>
+        <a href="index.html#partners" class="m-link" data-sw="🤝 Washirika" data-en="🤝 Partners">🤝 Partners</a>
+        <a href="#contact" class="m-link" data-sw="📞 Mawasiliano" data-en="📞 Contacts">📞 Contacts</a>
+      </div>
+    </div>
+
+    <main class="fusion-container">
+
+      <!-- SECTION 1: TECHNOLOGIES DIVISION HERO -->
+      <section class="tesla-hero-section page-hero-tech" id="hero">
+        <div class="hero-bg-media" style="background-image: url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=2400&q=85');"></div>
+        <div class="hero-vignette"></div>
+
+        <div class="tesla-hero-top-text">
+          <div class="hyper-pill-tag">
+            <span class="pulse-dot green"></span>
+            <span data-sw="HAULA TECHNOLOGIES // SMART LIFE, REAL VALUE" data-en="HAULA TECHNOLOGIES // SMART LIFE, REAL VALUE">HAULA TECHNOLOGIES // SMART LIFE, REAL VALUE</span>
+          </div>
+
+          <h1 class="tesla-hero-h1" data-sw="Mifumo ya Software & Networking" data-en="Software Engineering & Enterprise Networking">
+            Software Engineering & Enterprise Networking
+          </h1>
+          <p class="tesla-hero-p" data-sw="Smart Life, Real Value — Haula Technologies inabuni mifumo ya kidijitali kama Dawafy Pharmacy OS, Tanzanite Insights, na Taskora Hub pamoja na usimikaji wa waya za Cat6/Cat6A LAN, Cisco Routers, na Mtandao wa Wireless." data-en="Smart Life, Real Value — Architecting flagship software platforms (Dawafy OS, Tanzanite Insights, Taskora) alongside high-performance Cat6/Cat6A LAN cabling, Cisco routing, hardware firewalls, and long-range wireless links.">
+            Smart Life, Real Value — Architecting flagship software platforms (Dawafy OS, Tanzanite Insights, Taskora) alongside high-performance Cat6/Cat6A LAN cabling, Cisco routing, hardware firewalls, and long-range wireless links.
+          </p>
+        </div>
+
+        <div class="tesla-hero-bottom-group">
+          <div class="tesla-btn-group">
+            <a href="#software-pillar" class="hyper-btn-primary" data-sw="Software Ecosystem" data-en="Software Ecosystem">Software Ecosystem</a>
+            <a href="#networking-pillar" class="hyper-btn-glass" data-sw="Networking & ICT" data-en="Networking & ICT">Networking & ICT</a>
+          </div>
+
+          <div class="deepin-specs-bar">
+            <div class="tesla-spec-item">
+              <strong class="spec-num">Dawafy OS</strong>
+              <span class="spec-lbl" data-sw="PHARMACY POS" data-en="PHARMACY POS">PHARMACY POS</span>
+            </div>
+            <div class="tesla-spec-item">
+              <strong class="spec-num">Cat6A LAN</strong>
+              <span class="spec-lbl" data-sw="CABLING & RACKS" data-en="CABLING & RACKS">CABLING & RACKS</span>
+            </div>
+            <div class="tesla-spec-item">
+              <strong class="spec-num">Cisco / MikroTik</strong>
+              <span class="spec-lbl" data-sw="ROUTING SECURITY" data-en="ROUTING SECURITY">ROUTING SECURITY</span>
+            </div>
+            <div class="tesla-spec-item">
+              <strong class="spec-num">P2P Wireless</strong>
+              <span class="spec-lbl" data-sw="WIRELESS LINKS" data-en="WIRELESS LINKS">WIRELESS LINKS</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 2: SERVICE PILLAR 01 — SOFTWARE DEVELOPMENT SERVICES -->
+      <section class="tesla-content-section" id="software-pillar">
+        <div class="section-container">
+          <div class="tesla-section-header">
+            <span class="hyper-pill-tag">PILLAR 01 // SOFTWARE DEVELOPMENT SERVICES</span>
+            <h2 data-sw="Mifumo ya Kidijitali na Enterprise Software" data-en="Software Engineering & Enterprise Ecosystem">Software Engineering & Enterprise Ecosystem</h2>
+            <p data-sw="Mifumo thabiti ya kusimamia biashara, mauzo, stoo na takwimu iliyobuniwa na wataalamu wa Haula Tech." data-en="High-performance enterprise management platforms built with modern web technologies, offline resilience, and TRA statutory integration.">
+              High-performance enterprise management platforms built with modern web technologies, offline resilience, and TRA statutory integration.
+            </p>
+          </div>
+
+          <!-- FLAGSHIP PRODUCT: DAWAFY PHARMACY ENTERPRISE OS -->
+          <div class="deepin-window-card">
+            <div class="window-header">
+              <span class="win-dot red"></span>
+              <span class="win-dot yellow"></span>
+              <span class="win-dot green"></span>
+              <span class="win-title">Dawafy Pharmacy Enterprise OS v3.4</span>
+            </div>
+
+            <div class="dawafy-showcase-grid">
+              <div class="dawafy-details-col">
+                <span class="spec-pill-badge">FLAGSHIP PHARMACY SYSTEM</span>
+                <h3 data-sw="Dawafy Pharmacy Enterprise OS" data-en="Dawafy Pharmacy Enterprise OS">Dawafy Pharmacy Enterprise OS</h3>
+                <p data-sw="Mfumo bora kabisa nchini Tanzania wa kusimamia maduka ya dawa (Pharmacy & Dispensary). Unakuwezesha kusimamia mauzo (Cashier POS), tahadhari ya tarehe za mwisho za dawa (90-Day Expiry Alerts), ankara za kodi za TRA EFD, na mchanganuo wa faida." data-en="Tanzania's premier pharmacy & dispensary management OS. Unifying sub-second cashier checkout, 90-day medicine expiry warnings, TRA statutory tax invoice generation, and multi-branch revenue analytics.">
+                  Tanzania's premier pharmacy & dispensary management OS. Unifying sub-second cashier checkout, 90-day medicine expiry warnings, TRA statutory tax invoice generation, and multi-branch revenue analytics.
+                </p>
+
+                <div class="dawafy-features-list">
+                  <div class="f-item">⚡ <strong>Cashier Barcode POS</strong></div>
+                  <div class="f-item">🛡️ <strong>90-Day Expiry Alerts</strong></div>
+                  <div class="f-item">📄 <strong>TRA EFD Invoices</strong></div>
+                  <div class="f-item">🔄 <strong>Multi-Branch Sync</strong></div>
+                </div>
+
+                <div class="showcase-ctas">
+                  <button class="hyper-btn-primary open-drawer-btn" onclick="openSpecsDrawer('dawafy')" data-product="dawafy" data-sw="Angalia Maelezo Zaidi (View Specs) &rarr;" data-en="View Full Specs &rarr;">View Full Specs &rarr;</button>
+                  <a href="#contact" class="hyper-btn-outline" data-sw="Omba Demo ya Mfumo" data-en="Request Live Demo">Request Live Demo</a>
+                </div>
+              </div>
+
+              <!-- Interactive Dashboard Graphic -->
+              <div class="tesla-ui-window">
+                <div class="ui-bar">
+                  <span class="u-dot r"></span>
+                  <span class="u-dot y"></span>
+                  <span class="u-dot g"></span>
+                  <span class="u-title">dawafy-os-v3.4-live-dashboard</span>
+                </div>
+                <div class="ui-content">
+                  <div class="ui-metrics">
+                    <div class="u-metric">
+                      <small>TOTAL SALES</small>
+                      <strong>TZS 4,850,000</strong>
+                    </div>
+                    <div class="u-metric">
+                      <small>TRA EFD STATUS</small>
+                      <strong class="green-text">VERIFIED ✓</strong>
+                    </div>
+                    <div class="u-metric">
+                      <small>EXPIRY ALERTS</small>
+                      <strong style="color: #ef4444;">0 RISKS</strong>
+                    </div>
+                  </div>
+
+                  <div class="ui-chart-box">
+                    <div class="chart-title">HOURLY REVENUE VELOCITY</div>
+                    <div class="chart-bars-wrap">
+                      <div class="c-bar" style="height: 40%;"></div>
+                      <div class="c-bar" style="height: 65%;"></div>
+                      <div class="c-bar" style="height: 90%; background: var(--hyper-green);"></div>
+                      <div class="c-bar" style="height: 75%;"></div>
+                      <div class="c-bar" style="height: 50%;"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- SOFTWARE ECOSYSTEM PROJECTS GRID -->
+          <div class="ecosystem-cards-row">
+            <!-- 1. Tanzanite Insights System -->
+            <article class="eco-card">
+              <div class="eco-icon">📊</div>
+              <h4>Tanzanite Insights System</h4>
+              <p data-sw="Mfumo wa takwimu za biashara, mchanganuo wa faida na utabiri wa mauzo (Executive Business Intelligence)." data-en="Executive business intelligence suite providing real-time revenue velocity dashboards, profit analytics, and sales forecasting.">
+                Executive business intelligence suite providing real-time revenue velocity dashboards, profit analytics, and sales forecasting.
+              </p>
+              <button class="eco-link open-drawer-btn" onclick="openSpecsDrawer('tanzanite')" data-product="tanzanite" data-sw="Fungua Maelezo &rarr;" data-en="View Specifications &rarr;">View Specifications &rarr;</button>
+            </article>
+
+            <!-- 2. Taskora System -->
+            <article class="eco-card">
+              <div class="eco-icon">🚀</div>
+              <h4>Taskora System</h4>
+              <p data-sw="Mfumo wa kuratibu majukumu ya timu, kufuatilia miradi, Kanban boards na ratiba za kazi (Project Hub)." data-en="Agile project execution platform engineered for team task distribution, Kanban workflows, and deadline tracking.">
+                Agile project execution platform engineered for team task distribution, Kanban workflows, and deadline tracking.
+              </p>
+              <button class="eco-link open-drawer-btn" onclick="openSpecsDrawer('taskora')" data-product="taskora" data-sw="Fungua Maelezo &rarr;" data-en="View Specifications &rarr;">View Specifications &rarr;</button>
+            </article>
+
+            <!-- 3. E-Duka System -->
+            <article class="eco-card">
+              <div class="eco-icon">🛒</div>
+              <h4>E-Duka System</h4>
+              <p data-sw="Mfumo wa biashara ya mtandaoni (E-Commerce Platform) wenye malipo ya Simu Money (M-Pesa, TigoPesa, AirtelMoney) na stoo." data-en="Multi-vendor & retail digital e-commerce platform integrated with mobile money payments, order tracking, and inventory sync.">
+                Multi-vendor & retail digital e-commerce platform integrated with mobile money payments, order tracking, and inventory sync.
+              </p>
+              <button class="eco-link open-drawer-btn" onclick="openSpecsDrawer('eduka')" data-product="eduka" data-sw="Fungua Maelezo &rarr;" data-en="View Specifications &rarr;">View Specifications &rarr;</button>
+            </article>
+
+            <!-- 4. WAMAS System (Food Grain Warehouse, Procurement & Supply Chain) -->
+            <article class="eco-card">
+              <div class="eco-icon">🏭</div>
+              <h4>WAMAS System</h4>
+              <p data-sw="Food Grain Warehouse Management System — Mfumo maalum wa usimamizi wa maghala ya nafaka na vyakula (Food Warehouses), ufuatiliaji wa ubora (Quality Control), na usimamizi wa manunuzi na usambazaji (Procurement & Supply Chain)." data-en="Enterprise Food Grain Warehouse Management System featuring automated Procurement & Supply Chain distribution, silo grain telemetry, and batch quality control.">
+                Enterprise Food Grain Warehouse Management System featuring automated Procurement & Supply Chain distribution, silo grain telemetry, and batch quality control.
+              </p>
+              <button class="eco-link open-drawer-btn" onclick="openSpecsDrawer('wamas')" data-product="wamas" data-sw="Fungua Maelezo &rarr;" data-en="View Specifications &rarr;">View Specifications &rarr;</button>
+            </article>
+
+            <!-- 5. Haula Agro Market System (Agri-Tech Digital Trading Platform) -->
+            <article class="eco-card" style="border-color: rgba(34, 197, 94, 0.4);">
+              <div class="eco-icon">🌾</div>
+              <h4>Haula Agro Market System</h4>
+              <p data-sw="Soko la kidijitali la manunuzi na mauzo ya mazao ya kilimo (Agri-Commodity Trading Platform), kulinganisha bei za masoko ya kikanda, na kuunganisha wakulima, wafanyabiashara na maghala ya WAMAS." data-en="Digital Agri-Commodity Trading Marketplace featuring real-time regional produce price telemetry, digital trading contracts, and direct WAMAS warehouse integration.">
+                Digital Agri-Commodity Trading Marketplace featuring real-time regional produce price telemetry, digital trading contracts, and direct WAMAS warehouse integration.
+              </p>
+              <button class="eco-link open-drawer-btn" onclick="openSpecsDrawer('agromarket')" data-product="agromarket" data-sw="Fungua Maelezo &rarr;" data-en="View Specifications &rarr;">View Specifications &rarr;</button>
+            </article>
+
+            <!-- 6. AMS (Asset Management System) -->
+            <article class="eco-card">
+              <div class="eco-icon">🏷️</div>
+              <h4>AMS (Asset Management System)</h4>
+              <p data-sw="Asset Management System — Mfumo maalum wa usimamizi na ufuatiliaji wa mali za kampuni (Fixed Assets, Mitambo, Magari), QR/RFID Tagging, ukarabati na hesabu za uchakavu (Depreciation)." data-en="Enterprise Fixed Asset Management System for tracking corporate equipment, machinery, vehicle fleet maintenance, RFID/QR tagging, and automated financial depreciation accounting.">
+                Enterprise Fixed Asset Management System for tracking corporate equipment, machinery, vehicle fleet maintenance, RFID/QR tagging, and automated financial depreciation accounting.
+              </p>
+              <button class="eco-link open-drawer-btn" onclick="openSpecsDrawer('ams')" data-product="ams" data-sw="Fungua Maelezo &rarr;" data-en="View Specifications &rarr;">View Specifications &rarr;</button>
+            </article>
+
+            <!-- 7. Enterprise APIs & Custom Systems -->
+            <article class="eco-card">
+              <div class="eco-icon">🔌</div>
+              <h4>Enterprise APIs & Custom Systems</h4>
+              <p data-sw="Uundaji wa RESTful APIs, mfumo wa TRA EFD Integrations, Payment Gateways na Microservices maalum za kisasa." data-en="Tailor-made cloud software, TRA statutory EFD APIs, banking payment gateways, and high-availability database microservices.">
+                Tailor-made cloud software, TRA statutory EFD APIs, banking payment gateways, and high-availability database microservices.
+              </p>
+              <button class="eco-link open-drawer-btn" onclick="openSpecsDrawer('api')" data-product="api" data-sw="Fungua Maelezo &rarr;" data-en="View Specifications &rarr;">View Specifications &rarr;</button>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 3: SERVICE PILLAR 02 — NETWORKING & ICT INFRASTRUCTURE -->
+      <section class="tesla-content-section bg-deepin-titanium" id="networking-pillar">
+        <div class="section-container">
+          <div class="tesla-section-header">
+            <span class="hyper-pill-tag">PILLAR 02 // NETWORKING & ICT INFRASTRUCTURE</span>
+            <h2 data-sw="Usimikaji wa Mtandao na ICT Infrastructure" data-en="Enterprise Networking & Infrastructure Solutions">Enterprise Networking & Infrastructure Solutions</h2>
+            <p data-sw="Usimikaji wa kitaalamu wa miundombinu ya mtandao wa LAN, routers za kibiashara, na mtandao wa wireless." data-en="High-density LAN cabling, enterprise routing, hardware firewalls, and long-range wireless connectivity engineered for maximum uptime.">
+              High-density LAN cabling, enterprise routing, hardware firewalls, and long-range wireless connectivity engineered for maximum uptime.
+            </p>
+          </div>
+
+          <!-- 3D GLASS CARDS ENCASING ALL 4 NETWORKING SERVICES -->
+          <div class="networking-grid">
+            
+            <!-- Service 1: Structured LAN Cabling -->
+            <article class="net-card-box">
+              <div class="net-card-header">
+                <div class="net-icon-wrap">🌐</div>
+                <span class="net-badge blue">STRUCTURED LAN CABLING</span>
+              </div>
+              <h3>Structured LAN & Network Cabling</h3>
+              <p data-sw="Usimikaji wa waya za Cat6/Cat6A, Patch Panels, na Server Rack Management ya kiwango cha juu." data-en="High-density Cat6/Cat6A LAN cabling, patch panel termination, and server rack management.">
+                High-density Cat6/Cat6A LAN cabling, patch panel termination, and server rack management.
+              </p>
+              <ul class="net-features-checklist">
+                <li><span class="c-check">✓</span> Cat6 & Cat6A Heavy Duty Cabling</li>
+                <li><span class="c-check">✓</span> Professional Patch Panel Termination</li>
+                <li><span class="c-check">✓</span> Professional Server Rack Cable Management</li>
+              </ul>
+            </article>
+
+            <!-- Service 2: Enterprise Routing & Security -->
+            <article class="net-card-box">
+              <div class="net-card-header">
+                <div class="net-icon-wrap">🛡️</div>
+                <span class="net-badge orange">ROUTING & SECURITY</span>
+              </div>
+              <h3>Enterprise Routing & Firewalls</h3>
+              <p data-sw="Uwekaji wa Routers za Cisco na MikroTik, PoE Switches, VLAN Segmentation, Hardware Firewalls, na kuunganisha matawi kwa VPN Tunnels." data-en="Enterprise-grade routing, managed PoE switches, VLAN segmentation, hardware firewalls, and secure site-to-site VPN tunnels.">
+                Enterprise-grade routing, managed PoE switches, VLAN segmentation, hardware firewalls, and secure site-to-site VPN tunnels.
+              </p>
+              <ul class="net-features-checklist">
+                <li><span class="c-check">✓</span> Cisco & MikroTik Router/Switch Configuration</li>
+                <li><span class="c-check">✓</span> Hardware Firewall Threat Protection</li>
+                <li><span class="c-check">✓</span> Secure Site-to-Site Branch VPN Tunnels</li>
+              </ul>
+            </article>
+
+            <!-- Service 3: Point-to-Point Wireless Links -->
+            <article class="net-card-box">
+              <div class="net-card-header">
+                <div class="net-icon-wrap">📡</div>
+                <span class="net-badge green">WIRELESS NETWORKING</span>
+              </div>
+              <h3>Long-Range Point-to-Point Wireless</h3>
+              <p data-sw="Usimikaji wa mtandao wa Wireless Bridges za umbali mrefu kwa maeneo yaliyojitenga au matawi ya mbali." data-en="High-speed long-range point-to-point wireless bridges and multi-site wireless links for remote sites, farms, and branch offices.">
+                High-speed long-range point-to-point wireless bridges and multi-site wireless links for remote sites, farms, and branch offices.
+              </p>
+              <ul class="net-features-checklist">
+                <li><span class="c-check">✓</span> Long-Range Point-to-Point Wireless Links</li>
+                <li><span class="c-check">✓</span> Multi-Site Enterprise Wireless Mesh</li>
+                <li><span class="c-check">✓</span> Seamless Load Balancing & Failover Router</li>
+              </ul>
+            </article>
+
+            <!-- Service 4: Server Infrastructure & Cloud Backup -->
+            <article class="net-card-box">
+              <div class="net-card-header">
+                <div class="net-icon-wrap">🖥️</div>
+                <span class="net-badge purple">SERVERS & CLOUD</span>
+              </div>
+              <h3>Server Infrastructure & Managed IT</h3>
+              <p data-sw="Usimikaji wa Server za kampuni, Windows/Linux Server OS, Backup ya Cloud ya kiotomatiki, na msaada wa kiufundi wa masaa 24/7." data-en="Enterprise server deployment, Windows/Linux Server OS setup, automated cloud backups, and dedicated 24/7 IT support management.">
+                Enterprise server deployment, Windows/Linux Server OS setup, automated cloud backups, and dedicated 24/7 IT support management.
+              </p>
+              <ul class="net-features-checklist">
+                <li><span class="c-check">✓</span> On-Premise & Cloud Server Deployment</li>
+                <li><span class="c-check">✓</span> Automated Real-Time Cloud Backups</li>
+                <li><span class="c-check">✓</span> 24/7 Managed IT Support & Maintenance</li>
+              </ul>
+            </article>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 4: CONTACT & FOOTER -->
+      <section class="tesla-content-section" id="contact">
+        <div class="section-container">
+          <div class="contact-tesla-grid">
+            <div class="contact-txt">
+              <span class="hyper-pill-tag">TECH CONSULTATION</span>
+              <h2 data-sw="Wasiliana na Haula Tech" data-en="Contact Haula Technologies">Contact Haula Technologies</h2>
+              <p data-sw="Smart Life, Real Value — Tuko tayari kutoa ushauri wa kitaalamu na usimikaji wa mifumo ya software au networking kwa biashara yako." data-en="Smart Life, Real Value — Reach out to our engineering leadership team for software demonstrations, networking audits, or system installations.">
+                Smart Life, Real Value — Reach out to our engineering leadership team for software demonstrations, networking audits, or system installations.
+              </p>
+
+              <div class="c-info-list">
+                <div><strong>📍 Location</strong><span>Morogoro & Dar es Salaam, Tanzania</span></div>
+                <div><strong>✉️ Technical Support Email</strong><span><a href="mailto:info@haulaenterprises.co.tz">info@haulaenterprises.co.tz</a></span></div>
+                <div><strong>📞 Direct Lines</strong><span><a href="tel:+255779646632">+255 779 646 632</a> / <a href="tel:+255688172822">+255 688 172 822</a></span></div>
+              </div>
+            </div>
+
+            <form class="contact-form-card" id="contactForm">
+              <div class="f-group">
+                <label data-sw="Jina Kamili" data-en="Full Name">Full Name</label>
+                <input type="text" required placeholder="Juma Said" />
+              </div>
+              <div class="f-group">
+                <label data-sw="Barua Pepe" data-en="Email Address">Email Address</label>
+                <input type="email" required placeholder="juma@example.com" />
+              </div>
+              <div class="f-group">
+                <label data-sw="Huduma Unayohitaji" data-en="Service of Interest">Service of Interest</label>
+                <select class="tesla-input-select">
+                  <option value="dawafy">Dawafy Pharmacy Enterprise OS</option>
+                  <option value="software">Custom Software & API Development</option>
+                  <option value="networking">Structured LAN & Network Cabling</option>
+                  <option value="routing">Cisco / MikroTik Routing & Firewalls</option>
+                  <option value="wireless">Long-Range Wireless Point-to-Point Links</option>
+                </select>
+              </div>
+              <div class="f-group">
+                <label data-sw="Ujumbe Wako" data-en="Your Message">Your Message</label>
+                <textarea rows="3" required placeholder="Describe your request..."></textarea>
+              </div>
+              <button type="submit" class="contact-submit-btn" data-sw="Tuma Ujumbe" data-en="Send Message">Send Message</button>
+              <div id="formStatus" class="f-status"></div>
+            </form>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Deepin OS Dock Footer -->
+    <footer class="deepin-footer">
+      <div class="footer-row">
+        <div class="footer-brand-wrap">
+          <img src="assets/imgs/logo.png" alt="Haula Enterprises Logo" class="footer-logo-img" />
+          <div style="display:flex; flex-direction:column;">
+            <span>&copy; <span id="currentYear">2026</span> Haula Enterprises Ltd.</span>
+            <small style="font-size:10px; color:var(--hyper-orange); font-weight:700; letter-spacing:0.5px;">SMART LIFE, REAL VALUE</small>
+          </div>
+        </div>
+        <a href="index.html">Home</a>
+        <a href="index.html#about">About</a>
+        <button class="loader-trigger" data-module="transport" style="background:none; border:none; color:#64748b; font-size:12px; font-weight:600; cursor:pointer;">Transportation</button>
+        <button class="loader-trigger" data-module="trading" style="background:none; border:none; color:#64748b; font-size:12px; font-weight:600; cursor:pointer;">Trading</button>
+        <button class="loader-trigger" data-module="security" style="background:none; border:none; color:#64748b; font-size:12px; font-weight:600; cursor:pointer;">Security & Cyber</button>
+        <a href="technologies.html">Technologies</a>
+        <a href="#contact">Contacts</a>
+        <a href="admin.html" title="Executive Portal" style="margin-left: auto; color:#64748b; text-decoration:none; font-weight:500;">Morogoro / Dar es Salaam, Tanzania</a>
+      </div>
+    </footer>
+
+    <!-- INTERACTIVE PRODUCT SPECIFICATIONS DRAWER MODAL -->
+    <div class="product-drawer-backdrop" id="drawerBackdrop">
+      <div class="product-drawer-content">
+        <button class="close-drawer-btn" id="closeDrawerBtn">&times;</button>
+        <div id="drawerBody"></div>
+      </div>
+    </div>
+
+    <!-- INTERACTIVE INFINITE LOADING OVERLAY MODAL -->
+    <div class="loading-overlay-backdrop" id="loadingOverlay">
+      <div class="loading-glass-card">
+        <button class="loading-close-btn" id="closeLoadingBtn">&times;</button>
+
+        <div class="hyper-spinner-ring">
+          <div class="inner-spin-ring"></div>
+        </div>
+
+        <span class="loading-badge" id="loaderBadge">HAULA SYSTEM // INITIALIZING...</span>
+        <h3 class="loading-title" id="loaderTitle">Connecting to Telemetry Server...</h3>
+        <p class="loading-sub" id="loaderSub">Inaload taarifa za idara hii kwa sasa. Mfumo upo kwenye matengenezo na utakuwa tayari hivi karibuni.</p>
+
+        <div class="loading-progress-bar">
+          <div class="bar-pulse-fill"></div>
+        </div>
+
+        <div class="loading-actions">
+          <button class="hyper-btn-glass" id="dismissLoadingBtn">Sitisha / Close</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js?v=19.0"></script>
+  </body>
+</html>
