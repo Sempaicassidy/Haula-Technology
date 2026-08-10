@@ -299,6 +299,17 @@ button, input, select, textarea {
   letter-spacing: 0.5px;
 }
 
+.soon-badge.coming-soon {
+  background: rgba(239, 68, 68, 0.15) !important;
+  color: #ef4444 !important;
+}
+
+.soon-badge.live-badge {
+  background: rgba(16, 185, 129, 0.15) !important;
+  color: #10b981 !important;
+}
+
+
 .dock-actions {
   display: flex;
   align-items: center;

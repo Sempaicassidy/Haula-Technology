@@ -162,32 +162,32 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const loadingData = {
     transport: {
-      badge: "HAULA TRANSPORTATION // INITIALIZING FLEET TELEMETRY...",
-      title_en: "Connecting to Heavy Fleet Telemetry Server...",
-      title_sw: "Inaunganisha na Server ya Magari ya Mizigo (Fleet Telemetry)...",
-      sub_en: "Loading live satellite tracking module for Haula Transportation. Please stand by while system initializes.",
-      sub_sw: "Inaload mifumo ya satellite tracking ya usafirishaji wa mizigo mizito. Mfumo upo kwenye maandalizi."
+      badge: "HAULA TRANSPORTATION // COMING SOON",
+      title_en: "Haula Transportation — Coming Soon",
+      title_sw: "Haula Transportation — Inakuja Hivi Karibuni",
+      sub_en: "This division is currently under active preparation and will launch soon. For active services, please explore Haula Technologies.",
+      sub_sw: "Idara hii ipo kwenye maandalizi ya mwisho na itakuwa hewani hivi karibuni. Kwa huduma zinazofanya kazi sasa, karibu utembelee Haula Technologies."
     },
     trading: {
-      badge: "HAULA TRADING // INITIALIZING PORT CLEARANCE...",
-      title_en: "Connecting to Dar Port Customs Gateway...",
-      title_sw: "Inaunganisha na Mfumo wa Bandari ya Dar es Salaam...",
-      sub_en: "Loading live customs clearance and commodity procurement portal. Please stand by while system initializes.",
-      sub_sw: "Inaload taarifa za kutoa mizigo bandarini na biashara ya kimataifa. Mfumo upo kwenye maandalizi."
+      badge: "HAULA TRADING // COMING SOON",
+      title_en: "Haula Trading & Customs — Coming Soon",
+      title_sw: "Haula Trading & Customs — Inakuja Hivi Karibuni",
+      sub_en: "This division is currently under active preparation and will launch soon. For active services, please explore Haula Technologies.",
+      sub_sw: "Idara hii ipo kwenye maandalizi ya mwisho na itakuwa hewani hivi karibuni. Kwa huduma zinazofanya kazi sasa, karibu utembelee Haula Technologies."
     },
     security: {
-      badge: "HAULA SECURITY // INITIALIZING CYBER & SECURITY GATEWAY...",
-      title_en: "Connecting to Security Systems & Cyber Operations Center...",
-      title_sw: "Inaunganisha na Kituo cha Mifumo ya Ulinzi & Cyber Security...",
-      sub_en: "Loading security firm capacity training modules, security company ERP software, and Cyber Security threat protection portals. System is initializing.",
-      sub_sw: "Inaload taarifa za mafunzo ya ulinzi kwa makampuni ya ulinzi, software za usimamizi wa ulinzi (Security Systems), na huduma za Cyber Security. Mfumo utakuwa hewani hivi karibuni."
+      badge: "HAULA SECURITY // COMING SOON",
+      title_en: "Haula Security & Cyber — Coming Soon",
+      title_sw: "Haula Security & Cyber — Inakuja Hivi Karibuni",
+      sub_en: "This division is currently under active preparation and will launch soon. For active services, please explore Haula Technologies.",
+      sub_sw: "Idara hii ipo kwenye maandalizi ya mwisho na itakuwa hewani hivi karibuni. Kwa huduma zinazofanya kazi sasa, karibu utembelee Haula Technologies."
     },
     techhub: {
-      badge: "HAULA TECH HUB // INITIALIZING ICT INCUBATOR...",
-      title_en: "Connecting to Technology Hub & AI Innovation Center...",
-      title_sw: "Inaunganisha na Kituo cha Mafunzo ya ICT, AI & Coding Bootcamps...",
-      sub_en: "Loading youth & professional ICT capacity building programs, AI enterprise solutions, and digital tech startup incubator.",
-      sub_sw: "Inaload taarifa za mafunzo ya ICT, AI, Coding Bootcamps na Incubator ya kukuza startups za kidijitali Tanzania. Mfumo utakuwa hewani hivi karibuni."
+      badge: "HAULA TECH HUB // COMING SOON",
+      title_en: "Haula Technology Hub — Coming Soon",
+      title_sw: "Haula Technology Hub — Inakuja Hivi Karibuni",
+      sub_en: "This division is currently under active preparation and will launch soon. For active services, please explore Haula Technologies.",
+      sub_sw: "Idara hii ipo kwenye maandalizi ya mwisho na itakuwa hewani hivi karibuni. Kwa huduma zinazofanya kazi sasa, karibu utembelee Haula Technologies."
     }
   };
 
@@ -199,7 +199,7 @@ document.addEventListener('DOMContentLoaded', () => {
       let moduleKey = targetLink.getAttribute('data-module') || targetLink.getAttribute('data-division');
       
       const divSaved = localStorage.getItem('haula_div_config');
-      const divConfig = divSaved ? JSON.parse(divSaved) : { transport: 'live', trading: 'live', security: 'live', techhub: 'live' };
+      const divConfig = divSaved ? JSON.parse(divSaved) : { transport: 'soon', trading: 'soon', security: 'soon', techhub: 'soon' };
 
       if (moduleKey && divConfig[moduleKey] === 'live') {
         return;

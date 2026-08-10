@@ -45,26 +45,26 @@
             </button>
 
             <div class="nav-dropdown-menu" role="menu">
-              <a href="transportation.html" class="dropdown-item" role="menuitem">
+              <a href="javascript:void(0)" class="dropdown-item loader-trigger coming-soon-trigger" data-module="transport" role="menuitem">
                 <span class="d-icon">🚚</span>
                 <div class="d-txt">
-                  <strong data-sw="Transportation" data-en="Transportation">Transportation <small class="soon-badge" style="background:rgba(16,185,129,0.15); color:#10b981;">LIVE</small></strong>
+                  <strong data-sw="Transportation" data-en="Transportation">Transportation <small class="soon-badge coming-soon">COMING SOON</small></strong>
                   <small data-sw="Usafirishaji wa mizigo mizito & mepesi" data-en="Heavy cargo haulage & logistics">Heavy cargo haulage & logistics</small>
                 </div>
               </a>
 
-              <a href="trading.html" class="dropdown-item" role="menuitem">
+              <a href="javascript:void(0)" class="dropdown-item loader-trigger coming-soon-trigger" data-module="trading" role="menuitem">
                 <span class="d-icon">🌐</span>
                 <div class="d-txt">
-                  <strong data-sw="Trading & Customs" data-en="Trading & Customs">Trading & Customs <small class="soon-badge" style="background:rgba(16,185,129,0.15); color:#10b981;">LIVE</small></strong>
+                  <strong data-sw="Trading & Customs" data-en="Trading & Customs">Trading & Customs <small class="soon-badge coming-soon">COMING SOON</small></strong>
                   <small data-sw="Biashara ya kimataifa & kutoa mizigo bandarini" data-en="Global trade & express port clearance">Global trade & express port clearance</small>
                 </div>
               </a>
 
-              <a href="security.html" class="dropdown-item" role="menuitem">
+              <a href="javascript:void(0)" class="dropdown-item loader-trigger coming-soon-trigger" data-module="security" role="menuitem">
                 <span class="d-icon">🛡️</span>
                 <div class="d-txt">
-                  <strong data-sw="Security & Cyber" data-en="Security & Cyber">Security & Cyber <small class="soon-badge" style="background:rgba(139,92,246,0.15); color:var(--hyper-purple);">LIVE</small></strong>
+                  <strong data-sw="Security & Cyber" data-en="Security & Cyber">Security & Cyber <small class="soon-badge coming-soon">COMING SOON</small></strong>
                   <small data-sw="Elimu ya ulinzi, software za ulinzi & Cyber Security" data-en="Guard Academy, Security ERP & Cyber Security">Guard Academy, Security ERP & Cyber Security</small>
                 </div>
               </a>
@@ -72,15 +72,15 @@
               <a href="technologies.html" class="dropdown-item" role="menuitem">
                 <span class="d-icon">⚡</span>
                 <div class="d-txt">
-                  <strong data-sw="Technologies" data-en="Technologies">Technologies</strong>
+                  <strong data-sw="Technologies" data-en="Technologies">Technologies <small class="soon-badge live-badge" style="background:rgba(16,185,129,0.15); color:#10b981;">ACTIVE</small></strong>
                   <small data-sw="Mifumo ya Software & Networking" data-en="Software & Networking Infrastructure">Software & Networking Infrastructure</small>
                 </div>
               </a>
 
-              <a href="techhub.html" class="dropdown-item" role="menuitem">
+              <a href="javascript:void(0)" class="dropdown-item loader-trigger coming-soon-trigger" data-module="techhub" role="menuitem">
                 <span class="d-icon">🚀</span>
                 <div class="d-txt">
-                  <strong data-sw="Technology Hub" data-en="Technology Hub">Technology Hub <small class="soon-badge" style="background:rgba(0,242,254,0.15); color:#0284c7;">LIVE</small></strong>
+                  <strong data-sw="Technology Hub" data-en="Technology Hub">Technology Hub <small class="soon-badge coming-soon">COMING SOON</small></strong>
                   <small data-sw="Mafunzo ya ICT, AI, Coding Bootcamps & Incubator" data-en="AI Innovation, ICT Bootcamps & Incubator">AI Innovation, ICT Bootcamps & Incubator</small>
                 </div>
               </a>
@@ -116,11 +116,11 @@
         <a href="index.html" class="m-link" data-sw="🏠 Mwanzo" data-en="🏠 Home">🏠 Home</a>
         <a href="#about" class="m-link" data-sw="🏢 Kuhusu Sisi" data-en="🏢 About Us">🏢 About Us</a>
         <div class="m-dropdown-header">OUR 5 CORE DIVISIONS</div>
-        <a href="javascript:void(0)" class="m-link loader-trigger" data-module="transport">🚚 Transportation <small class="soon-badge">LOADING...</small></a>
-        <a href="javascript:void(0)" class="m-link loader-trigger" data-module="trading">🌐 Trading & Customs <small class="soon-badge">LOADING...</small></a>
-        <a href="javascript:void(0)" class="m-link loader-trigger" data-module="security">🛡️ Security & Cyber <small class="soon-badge" style="background:rgba(139,92,246,0.15); color:var(--hyper-purple);">NEW</small></a>
-        <a href="technologies.html" class="m-link">⚡ Technologies (Dawafy OS)</a>
-        <a href="javascript:void(0)" class="m-link loader-trigger" data-module="techhub">🚀 Technology Hub & AI <small class="soon-badge" style="background:rgba(0,242,254,0.15); color:#0284c7;">5TH DIV</small></a>
+        <a href="javascript:void(0)" class="m-link loader-trigger" data-module="transport">🚚 Transportation <small class="soon-badge coming-soon">COMING SOON</small></a>
+        <a href="javascript:void(0)" class="m-link loader-trigger" data-module="trading">🌐 Trading & Customs <small class="soon-badge coming-soon">COMING SOON</small></a>
+        <a href="javascript:void(0)" class="m-link loader-trigger" data-module="security">🛡️ Security & Cyber <small class="soon-badge coming-soon">COMING SOON</small></a>
+        <a href="technologies.html" class="m-link">⚡ Technologies (Dawafy OS) <small class="soon-badge live-badge" style="background:rgba(16,185,129,0.15); color:#10b981;">ACTIVE</small></a>
+        <a href="javascript:void(0)" class="m-link loader-trigger" data-module="techhub">🚀 Technology Hub & AI <small class="soon-badge coming-soon">COMING SOON</small></a>
         <hr style="border:none; border-top:1px solid rgba(0,0,0,0.06); margin:8px 0;" />
         <a href="#faq" class="m-link" data-sw="❓ Maswali (FAQ)" data-en="❓ FAQ">❓ FAQ</a>
         <a href="#testimonials" class="m-link" data-sw="⭐️ Ushuhuda" data-en="⭐️ Testimonials">⭐️ Testimonials</a>
@@ -250,7 +250,7 @@
                   <button class="loader-trigger" data-module="transport" style="display: flex; align-items: center; gap: 12px; background: #f8fafc; padding: 12px; border-radius: 12px; border: 1px solid rgba(0,0,0,0.06); width: 100%; text-align: left; cursor: pointer;">
                     <span style="font-size: 20px;">🚚</span>
                     <div>
-                      <strong style="display: block; font-size: 13px; color: var(--tesla-black);">Haula Transportation <small class="soon-badge">LOADING...</small></strong>
+                      <strong style="display: block; font-size: 13px; color: var(--tesla-black);">Haula Transportation <small class="soon-badge coming-soon">COMING SOON</small></strong>
                       <span style="font-size: 11px; color: #64748b;">50+ Heavy fleet & GPS tracking</span>
                     </div>
                   </button>
@@ -258,7 +258,7 @@
                   <button class="loader-trigger" data-module="trading" style="display: flex; align-items: center; gap: 12px; background: #f8fafc; padding: 12px; border-radius: 12px; border: 1px solid rgba(0,0,0,0.06); width: 100%; text-align: left; cursor: pointer;">
                     <span style="font-size: 20px;">🌐</span>
                     <div>
-                      <strong style="display: block; font-size: 13px; color: var(--tesla-black);">Haula Trading <small class="soon-badge">LOADING...</small></strong>
+                      <strong style="display: block; font-size: 13px; color: var(--tesla-black);">Haula Trading <small class="soon-badge coming-soon">COMING SOON</small></strong>
                       <span style="font-size: 11px; color: #64748b;">Express Dar Port clearance (&lt; 24 hrs)</span>
                     </div>
                   </button>
@@ -266,7 +266,7 @@
                   <button class="loader-trigger" data-module="security" style="display: flex; align-items: center; gap: 12px; background: #f8fafc; padding: 12px; border-radius: 12px; border: 1px solid rgba(0,0,0,0.06); width: 100%; text-align: left; cursor: pointer;">
                     <span style="font-size: 20px;">🛡️</span>
                     <div>
-                      <strong style="display: block; font-size: 13px; color: var(--tesla-black);">Haula Security Services <small class="soon-badge" style="background:rgba(139,92,246,0.15); color:var(--hyper-purple);">NEW</small></strong>
+                      <strong style="display: block; font-size: 13px; color: var(--tesla-black);">Haula Security Services <small class="soon-badge coming-soon">COMING SOON</small></strong>
                       <span style="font-size: 11px; color: #64748b;">Elimu ya ulinzi & Cyber Security</span>
                     </div>
                   </button>
@@ -274,7 +274,7 @@
                   <a href="technologies.html" style="display: flex; align-items: center; gap: 12px; background: #f8fafc; padding: 12px; border-radius: 12px; border: 1px solid rgba(0,0,0,0.06); text-decoration: none;">
                     <span style="font-size: 20px;">⚡</span>
                     <div>
-                      <strong style="display: block; font-size: 13px; color: var(--tesla-black);">Haula Technologies</strong>
+                      <strong style="display: block; font-size: 13px; color: var(--tesla-black);">Haula Technologies <small class="soon-badge live-badge" style="background:rgba(16,185,129,0.15); color:#10b981;">ACTIVE</small></strong>
                       <span style="font-size: 11px; color: #64748b;">Dawafy Pharmacy OS & Networking</span>
                     </div>
                   </a>
@@ -282,7 +282,7 @@
                   <button class="loader-trigger" data-module="techhub" style="display: flex; align-items: center; gap: 12px; background: #f8fafc; padding: 12px; border-radius: 12px; border: 1px solid rgba(0,0,0,0.06); width: 100%; text-align: left; cursor: pointer;">
                     <span style="font-size: 20px;">🚀</span>
                     <div>
-                      <strong style="display: block; font-size: 13px; color: var(--tesla-black);">Haula Technology Hub <small class="soon-badge" style="background:rgba(0,242,254,0.15); color:#0284c7;">5TH DIV</small></strong>
+                      <strong style="display: block; font-size: 13px; color: var(--tesla-black);">Haula Technology Hub <small class="soon-badge coming-soon">COMING SOON</small></strong>
                       <span style="font-size: 11px; color: #64748b;">ICT Bootcamps & AI Innovations</span>
                     </div>
                   </button>
@@ -409,8 +409,8 @@
 
           <div class="conglomerate-pillars-grid">
             <!-- Division 1: Transportation -->
-            <article class="entity-card entity-mobility" data-div-card="transport">
-              <div class="entity-badge">01 // TRANSPORTATION <small class="soon-badge">LOADING...</small></div>
+            <article class="entity-card entity-mobility disabled-div-card" data-div-card="transport">
+              <div class="entity-badge">01 // TRANSPORTATION <small class="soon-badge coming-soon">COMING SOON</small></div>
               <div class="entity-icon">🚚</div>
               <h3>Haula Transportation</h3>
               <p data-sw="Usafirishaji wa mizigo mizito na mepesi nchini Tanzania na Nchi za Jirani (EAC & SADC) kwa teknolojia ya ufuatiliaji wa GPS." data-en="Heavy cargo logistics, container transport, and cross-border haulage integrated with real-time satellite tracking.">
@@ -421,12 +421,12 @@
                 <li>✦ Real-Time Cargo Tracking & Monitoring</li>
                 <li>✦ EAC & SADC Cross-Border Logistics</li>
               </ul>
-              <button class="entity-link loader-trigger" data-module="transport" style="background:none; border:none; cursor:pointer;" data-sw="Inaload Mfumo wa Transport... &rarr;" data-en="Loading Transport Module... &rarr;">Loading Transport Module... &rarr;</button>
+              <button class="entity-link loader-trigger coming-soon-trigger" data-module="transport" style="background:none; border:none; cursor:pointer;" data-sw="Inakuja Hivi Karibuni... &rarr;" data-en="Coming Soon... &rarr;">Coming Soon... &rarr;</button>
             </article>
 
             <!-- Division 2: Trading -->
-            <article class="entity-card entity-trade" data-div-card="trading">
-              <div class="entity-badge">02 // TRADING <small class="soon-badge">LOADING...</small></div>
+            <article class="entity-card entity-trade disabled-div-card" data-div-card="trading">
+              <div class="entity-badge">02 // TRADING <small class="soon-badge coming-soon">COMING SOON</small></div>
               <div class="entity-icon">🌐</div>
               <h3>Haula Trading</h3>
               <p data-sw="Biashara ya Kimataifa, uagizaji wa bidhaa za viwandani na kutoa mizigo bandarini kwa haraka." data-en="Global commercial trade, express port customs clearance, and wholesale supply chain distribution.">
@@ -437,12 +437,12 @@
                 <li>✦ Commercial & Industrial Wholesale Supply</li>
                 <li>✦ International Trade Partnerships & Procurement</li>
               </ul>
-              <button class="entity-link loader-trigger" data-module="trading" style="background:none; border:none; cursor:pointer;" data-sw="Inaload Mfumo wa Trading... &rarr;" data-en="Loading Trading Module... &rarr;">Loading Trading Module... &rarr;</button>
+              <button class="entity-link loader-trigger coming-soon-trigger" data-module="trading" style="background:none; border:none; cursor:pointer;" data-sw="Inakuja Hivi Karibuni... &rarr;" data-en="Coming Soon... &rarr;">Coming Soon... &rarr;</button>
             </article>
 
             <!-- Division 3: Security Academy & Security Management Systems -->
-            <article class="entity-card entity-security" data-div-card="security">
-              <div class="entity-badge">03 // SECURITY ACADEMY & SYSTEMS <small class="soon-badge" style="background:rgba(139,92,246,0.15); color:var(--hyper-purple);">NEW</small></div>
+            <article class="entity-card entity-security disabled-div-card" data-div-card="security">
+              <div class="entity-badge">03 // SECURITY ACADEMY & SYSTEMS <small class="soon-badge coming-soon">COMING SOON</small></div>
               <div class="entity-icon">🛡️</div>
               <h3>Haula Security Academy & Systems</h3>
               <p data-sw="Utoaji wa elimu na mafunzo ya kitaalamu ya ulinzi kwa makampuni ya ulinzi (Security Guard Academy), uuzaji wa mifumo na software maalum za ulinzi (Security Management Systems & ERP), pamoja na huduma za Cyber Security." data-en="Specialized security training academy for security firms, deployment of Security Management Software/Systems, and enterprise Cyber Security threat defense.">
@@ -453,12 +453,12 @@
                 <li>✦ Security Management Software & Guard ERP Systems</li>
                 <li>✦ Enterprise Cyber Security, Penetration Testing & Defense</li>
               </ul>
-              <button class="entity-link loader-trigger" data-module="security" style="background:none; border:none; cursor:pointer;" data-sw="Inaload Security Academy & Systems... &rarr;" data-en="Loading Security Academy & Systems... &rarr;">Loading Security Academy & Systems... &rarr;</button>
+              <button class="entity-link loader-trigger coming-soon-trigger" data-module="security" style="background:none; border:none; cursor:pointer;" data-sw="Inakuja Hivi Karibuni... &rarr;" data-en="Coming Soon... &rarr;">Coming Soon... &rarr;</button>
             </article>
 
             <!-- Division 4: Technologies -->
             <article class="entity-card entity-software" data-div-card="technologies">
-              <div class="entity-badge">04 // TECHNOLOGIES</div>
+              <div class="entity-badge">04 // TECHNOLOGIES <small class="soon-badge live-badge" style="background:rgba(16,185,129,0.15); color:#10b981;">ACTIVE</small></div>
               <div class="entity-icon">⚡</div>
               <h3>Haula Technologies</h3>
               <p data-sw="Ubunifu wa Software Services (Dawafy OS, Tanzanite Insights, Taskora) pamoja na Networking Infrastructure na Managed ICT." data-en="Providing Software Development Services (Dawafy OS, Tanzanite Insights, Taskora), Enterprise Networking Infrastructure, and Managed IT Services.">
@@ -473,8 +473,8 @@
             </article>
 
             <!-- Division 5: Haula Tech Hub & Academy -->
-            <article class="entity-card entity-techhub" data-div-card="techhub">
-              <div class="entity-badge">05 // TECH HUB & ACADEMY <small class="soon-badge" style="background:rgba(0,242,254,0.15); color:#0284c7;">5TH DIV</small></div>
+            <article class="entity-card entity-techhub disabled-div-card" data-div-card="techhub">
+              <div class="entity-badge">05 // TECH HUB & ACADEMY <small class="soon-badge coming-soon">COMING SOON</small></div>
               <div class="entity-icon">🚀</div>
               <h3>Haula Tech Hub & Academy</h3>
               <p data-sw="Kituo na chuo cha kukuza ujuzi wa Teknolojia na ICT (ICT Academy), mafunzo ya Coding & Software Bootcamps, Artificial Intelligence (AI) enterprise solutions, na Incubator ya kukuza startups za kidijitali Tanzania." data-en="Premier ICT capacity building academy providing Coding Bootcamps, Artificial Intelligence (AI) enterprise solutions, IoT innovations, and digital startup incubation in Tanzania.">
@@ -485,7 +485,7 @@
                 <li>✦ Artificial Intelligence (AI) & Machine Learning Solutions</li>
                 <li>✦ Tech Incubator & Digital Innovation Lab</li>
               </ul>
-              <button class="entity-link loader-trigger" data-module="techhub" style="background:none; border:none; cursor:pointer;" data-sw="Inaload Tech Hub & Academy... &rarr;" data-en="Loading Tech Hub & Academy... &rarr;">Loading Tech Hub & Academy... &rarr;</button>
+              <button class="entity-link loader-trigger coming-soon-trigger" data-module="techhub" style="background:none; border:none; cursor:pointer;" data-sw="Inakuja Hivi Karibuni... &rarr;" data-en="Coming Soon... &rarr;">Coming Soon... &rarr;</button>
             </article>
           </div>
         </div>

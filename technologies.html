@@ -46,26 +46,26 @@
             </button>
 
             <div class="nav-dropdown-menu" role="menu">
-              <a href="transportation.html" class="dropdown-item" role="menuitem">
+              <a href="javascript:void(0)" class="dropdown-item loader-trigger coming-soon-trigger" data-module="transport" role="menuitem">
                 <span class="d-icon">🚚</span>
                 <div class="d-txt">
-                  <strong data-sw="Transportation" data-en="Transportation">Transportation <small class="soon-badge" style="background:rgba(16,185,129,0.15); color:#10b981;">LIVE</small></strong>
+                  <strong data-sw="Transportation" data-en="Transportation">Transportation <small class="soon-badge coming-soon">COMING SOON</small></strong>
                   <small data-sw="Usafirishaji wa mizigo mizito & mepesi" data-en="Heavy cargo haulage & logistics">Heavy cargo haulage & logistics</small>
                 </div>
               </a>
 
-              <a href="trading.html" class="dropdown-item" role="menuitem">
+              <a href="javascript:void(0)" class="dropdown-item loader-trigger coming-soon-trigger" data-module="trading" role="menuitem">
                 <span class="d-icon">🌐</span>
                 <div class="d-txt">
-                  <strong data-sw="Trading & Customs" data-en="Trading & Customs">Trading & Customs <small class="soon-badge" style="background:rgba(16,185,129,0.15); color:#10b981;">LIVE</small></strong>
+                  <strong data-sw="Trading & Customs" data-en="Trading & Customs">Trading & Customs <small class="soon-badge coming-soon">COMING SOON</small></strong>
                   <small data-sw="Biashara ya kimataifa & kutoa mizigo bandarini" data-en="Global trade & express port clearance">Global trade & express port clearance</small>
                 </div>
               </a>
 
-              <a href="security.html" class="dropdown-item" role="menuitem">
+              <a href="javascript:void(0)" class="dropdown-item loader-trigger coming-soon-trigger" data-module="security" role="menuitem">
                 <span class="d-icon">🛡️</span>
                 <div class="d-txt">
-                  <strong data-sw="Security & Cyber" data-en="Security & Cyber">Security & Cyber <small class="soon-badge" style="background:rgba(139,92,246,0.15); color:var(--hyper-purple);">LIVE</small></strong>
+                  <strong data-sw="Security & Cyber" data-en="Security & Cyber">Security & Cyber <small class="soon-badge coming-soon">COMING SOON</small></strong>
                   <small data-sw="Guard Academy, Security ERP & Cyber Security" data-en="Guard Academy, Security ERP & Cyber Security">Guard Academy, Security ERP & Cyber Security</small>
                 </div>
               </a>
@@ -73,15 +73,15 @@
               <a href="technologies.html" class="dropdown-item" role="menuitem">
                 <span class="d-icon">⚡</span>
                 <div class="d-txt">
-                  <strong data-sw="Technologies" data-en="Technologies">Technologies</strong>
+                  <strong data-sw="Technologies" data-en="Technologies">Technologies <small class="soon-badge live-badge" style="background:rgba(16,185,129,0.15); color:#10b981;">ACTIVE</small></strong>
                   <small data-sw="Mifumo ya Software & Networking" data-en="Software & Networking Infrastructure">Software & Networking Infrastructure</small>
                 </div>
               </a>
 
-              <a href="techhub.html" class="dropdown-item" role="menuitem">
+              <a href="javascript:void(0)" class="dropdown-item loader-trigger coming-soon-trigger" data-module="techhub" role="menuitem">
                 <span class="d-icon">🚀</span>
                 <div class="d-txt">
-                  <strong data-sw="Technology Hub" data-en="Technology Hub">Technology Hub <small class="soon-badge" style="background:rgba(0,242,254,0.15); color:#0284c7;">LIVE</small></strong>
+                  <strong data-sw="Technology Hub" data-en="Technology Hub">Technology Hub <small class="soon-badge coming-soon">COMING SOON</small></strong>
                   <small data-sw="ICT Academy, AI Solutions & Tech Incubator" data-en="ICT Academy, AI Solutions & Tech Incubator">ICT Academy, AI Solutions & Tech Incubator</small>
                 </div>
               </a>
@@ -117,11 +117,11 @@
         <a href="index.html" class="m-link" data-sw="🏠 Mwanzo" data-en="🏠 Home">🏠 Home</a>
         <a href="index.html#about" class="m-link" data-sw="🏢 Kuhusu Sisi" data-en="🏢 About Us">🏢 About Us</a>
         <div class="m-dropdown-header">OUR 5 CORE DIVISIONS</div>
-        <a href="javascript:void(0)" class="m-link loader-trigger" data-module="transport">🚚 Transportation <small class="soon-badge">LOADING...</small></a>
-        <a href="javascript:void(0)" class="m-link loader-trigger" data-module="trading">🌐 Trading & Customs <small class="soon-badge">LOADING...</small></a>
-        <a href="javascript:void(0)" class="m-link loader-trigger" data-module="security">🛡️ Security Academy & Systems <small class="soon-badge" style="background:rgba(139,92,246,0.15); color:var(--hyper-purple);">NEW</small></a>
-        <a href="technologies.html" class="m-link">⚡ Technologies (Dawafy OS)</a>
-        <a href="javascript:void(0)" class="m-link loader-trigger" data-module="techhub">🚀 Tech Hub & Academy <small class="soon-badge" style="background:rgba(0,242,254,0.15); color:#0284c7;">5TH DIV</small></a>
+        <a href="javascript:void(0)" class="m-link loader-trigger" data-module="transport">🚚 Transportation <small class="soon-badge coming-soon">COMING SOON</small></a>
+        <a href="javascript:void(0)" class="m-link loader-trigger" data-module="trading">🌐 Trading & Customs <small class="soon-badge coming-soon">COMING SOON</small></a>
+        <a href="javascript:void(0)" class="m-link loader-trigger" data-module="security">🛡️ Security Academy & Systems <small class="soon-badge coming-soon">COMING SOON</small></a>
+        <a href="technologies.html" class="m-link">⚡ Technologies (Dawafy OS) <small class="soon-badge live-badge" style="background:rgba(16,185,129,0.15); color:#10b981;">ACTIVE</small></a>
+        <a href="javascript:void(0)" class="m-link loader-trigger" data-module="techhub">🚀 Tech Hub & Academy <small class="soon-badge coming-soon">COMING SOON</small></a>
         <hr style="border:none; border-top:1px solid rgba(0,0,0,0.06); margin:8px 0;" />
         <a href="index.html#faq" class="m-link" data-sw="❓ Maswali (FAQ)" data-en="❓ FAQ">❓ FAQ</a>
         <a href="index.html#testimonials" class="m-link" data-sw="⭐️ Ushuhuda" data-en="⭐️ Testimonials">⭐️ Testimonials</a>
