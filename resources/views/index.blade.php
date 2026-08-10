@@ -631,7 +631,7 @@
             <h2 data-sw="Washirika Wetu wa Kibiashara, Serikali na Teknolojia" data-en="Our Strategic Partners & Global Alliances Grid">Our Strategic Partners & Global Alliances Grid</h2>
           </div>
 
-          <div class="partners-multi-grid">
+          <!-- <div class="partners-multi-grid">
             <div class="partners-marquee-container">
               <div class="partners-marquee-track track-row-1">
                 <div class="partner-card-emblem"><span class="p-icon">⚓</span><div class="p-info"><strong>TPA (Tanzania Ports Authority)</strong><small>Dar Port Customs Logistics</small></div></div>
@@ -654,7 +654,7 @@
                 <div class="partner-card-emblem"><span class="p-icon">🤝</span><div class="p-info"><strong>TCCIA Chamber of Commerce</strong><small>Global Commercial Trade Network</small></div></div>
               </div>
             </div>
-          </div>
+          </div> -->
         </div>
       </section>
 
