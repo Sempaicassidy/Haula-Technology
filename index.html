@@ -38,8 +38,9 @@
     <!-- Google Fonts: Space Grotesk & Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <!-- High-Priority Preload for LCP Hero Image to eliminate load delay -->
-    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=60&fm=webp" fetchpriority="high" />
+    <!-- High-Priority Responsive Preload for LCP Hero Image -->
+    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=600&q=50&fm=webp" media="(max-width: 768px)" fetchpriority="high" />
+    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1000&q=65&fm=webp" media="(min-width: 769px)" fetchpriority="high" />
 
     <!-- Preload Stylesheet for Render-Blocking Optimization -->
     <link rel="preload" href="styles.css?v=19.0" as="style" />
@@ -163,9 +164,9 @@
       <section class="tesla-hero-section" id="hero">
         
         <div class="hero-slideshow-container" id="heroSlideshow">
-          <div class="hero-slide active" style="background-image: url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=60&fm=webp');"></div>
-          <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=800&q=60&fm=webp');"></div>
-          <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=60&fm=webp');"></div>
+          <div class="hero-slide active" style="background-image: url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=600&q=50&fm=webp');"></div>
+          <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=600&q=50&fm=webp');"></div>
+          <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=50&fm=webp');"></div>
         </div>
 
         <div class="hero-vignette"></div>
