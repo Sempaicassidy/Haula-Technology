@@ -704,7 +704,7 @@
         <span class="loading-badge">HAULA ENTERPRISES // CORPORATE CREDENTIALS</span>
         <h3 class="loading-title">Download Official Profile PDF</h3>
         <p class="loading-sub">Pakua broshua rasmi ya Haula Enterprises inayoelezea Idara zetu zote 5, maelezo ya kisheria na miradi yetu.</p>
-        <a href="assets/imgs/logo.png" download="Haula_Enterprises_Company_Profile.pdf" class="hyper-btn-primary" style="width:100%; max-width:320px; text-decoration:none;">📄 Download Official PDF (3.8 MB)</a>
+        <a href="assets/docs/Haula_Enterprises_Company_Profile.pdf" download="Haula_Enterprises_Company_Profile.pdf" target="_blank" class="hyper-btn-primary" style="width:100%; max-width:320px; text-decoration:none;">📄 Download Official PDF (Company Profile)</a>
       </div>
     </div>
 
