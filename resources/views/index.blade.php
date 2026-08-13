@@ -492,7 +492,7 @@
       </section>
 
       <!-- SECTION 5: CLIENT TESTIMONIALS & REVIEWS SECTION -->
-      <section class="tesla-content-section bg-deepin-titanium" id="testimonials">
+      <!-- <section class="tesla-content-section bg-deepin-titanium" id="testimonials">
         <div class="section-container">
           <div class="tesla-section-header text-center" style="max-width: 720px; margin: 0 auto 40px auto;">
             <span class="hyper-pill-tag" data-sw="USHUHUDA WA WATEJA WETU" data-en="CLIENT TESTIMONIALS">CLIENT TESTIMONIALS</span>
@@ -546,7 +546,7 @@
             </div>
           </div>
         </div>
-      </section>
+      </section> -->
 
       <!-- SECTION 6: INTERACTIVE FAQ ACCORDION SECTION -->
       <section class="tesla-content-section" id="faq">
