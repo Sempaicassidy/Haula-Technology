@@ -13,7 +13,8 @@
     <!-- Google Fonts: Space Grotesk & Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+    <!-- High-Priority Preload for LCP Hero Image -->
+    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=1200&q=75&fm=webp" fetchpriority="high" />
 
     <link rel="stylesheet" href="styles.css?v=19.0" />
   </head>
@@ -130,7 +131,7 @@
 
       <!-- HERO SECTION -->
       <section class="tesla-hero-section page-hero-transport" id="hero">
-        <div class="hero-bg-media" style="background-image: url('https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=2400&q=85');"></div>
+        <div class="hero-bg-media" style="background-image: url('https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=1200&q=75&fm=webp');"></div>
         <div class="hero-vignette"></div>
 
         <div class="tesla-hero-top-text">

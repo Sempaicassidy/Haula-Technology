@@ -2469,3 +2469,15 @@ button, input, select, textarea {
     right: 20px;
   }
 }
+
+/* ==========================================================================
+   PERFORMANCE & CORE WEB VITALS OPTIMIZATIONS (MOBILE SPEED & LCP)
+   ========================================================================== */
+#faq, #testimonials, #partners, #contact, .deepin-footer {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 600px;
+}
+
+img {
+  content-visibility: auto;
+}
