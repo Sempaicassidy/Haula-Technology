@@ -162,32 +162,32 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const loadingData = {
     transport: {
-      badge: "HAULA TRANSPORTATION // INITIALIZING FLEET TELEMETRY...",
-      title_en: "Connecting to Heavy Fleet Telemetry Server...",
-      title_sw: "Inaunganisha na Server ya Magari ya Mizigo (Fleet Telemetry)...",
-      sub_en: "Loading live satellite tracking module for Haula Transportation. Please stand by while system initializes.",
-      sub_sw: "Inaload mifumo ya satellite tracking ya usafirishaji wa mizigo mizito. Mfumo upo kwenye maandalizi."
+      badge: "HAULA TRANSPORTATION // COMING SOON",
+      title_en: "Haula Transportation — Coming Soon",
+      title_sw: "Haula Transportation — Inakuja Hivi Karibuni",
+      sub_en: "This division is currently under active preparation and will launch soon. For active services, please explore Haula Technologies.",
+      sub_sw: "Idara hii ipo kwenye maandalizi ya mwisho na itakuwa hewani hivi karibuni. Kwa huduma zinazofanya kazi sasa, karibu utembelee Haula Technologies."
     },
     trading: {
-      badge: "HAULA TRADING // INITIALIZING PORT CLEARANCE...",
-      title_en: "Connecting to Dar Port Customs Gateway...",
-      title_sw: "Inaunganisha na Mfumo wa Bandari ya Dar es Salaam...",
-      sub_en: "Loading live customs clearance and commodity procurement portal. Please stand by while system initializes.",
-      sub_sw: "Inaload taarifa za kutoa mizigo bandarini na biashara ya kimataifa. Mfumo upo kwenye maandalizi."
+      badge: "HAULA TRADING // COMING SOON",
+      title_en: "Haula Trading & Customs — Coming Soon",
+      title_sw: "Haula Trading & Customs — Inakuja Hivi Karibuni",
+      sub_en: "This division is currently under active preparation and will launch soon. For active services, please explore Haula Technologies.",
+      sub_sw: "Idara hii ipo kwenye maandalizi ya mwisho na itakuwa hewani hivi karibuni. Kwa huduma zinazofanya kazi sasa, karibu utembelee Haula Technologies."
     },
     security: {
-      badge: "HAULA SECURITY // INITIALIZING CYBER & SECURITY GATEWAY...",
-      title_en: "Connecting to Security Systems & Cyber Operations Center...",
-      title_sw: "Inaunganisha na Kituo cha Mifumo ya Ulinzi & Cyber Security...",
-      sub_en: "Loading security firm capacity training modules, security company ERP software, and Cyber Security threat protection portals. System is initializing.",
-      sub_sw: "Inaload taarifa za mafunzo ya ulinzi kwa makampuni ya ulinzi, software za usimamizi wa ulinzi (Security Systems), na huduma za Cyber Security. Mfumo utakuwa hewani hivi karibuni."
+      badge: "HAULA SECURITY // COMING SOON",
+      title_en: "Haula Security & Cyber — Coming Soon",
+      title_sw: "Haula Security & Cyber — Inakuja Hivi Karibuni",
+      sub_en: "This division is currently under active preparation and will launch soon. For active services, please explore Haula Technologies.",
+      sub_sw: "Idara hii ipo kwenye maandalizi ya mwisho na itakuwa hewani hivi karibuni. Kwa huduma zinazofanya kazi sasa, karibu utembelee Haula Technologies."
     },
     techhub: {
-      badge: "HAULA TECH HUB // INITIALIZING ICT INCUBATOR...",
-      title_en: "Connecting to Technology Hub & AI Innovation Center...",
-      title_sw: "Inaunganisha na Kituo cha Mafunzo ya ICT, AI & Coding Bootcamps...",
-      sub_en: "Loading youth & professional ICT capacity building programs, AI enterprise solutions, and digital tech startup incubator.",
-      sub_sw: "Inaload taarifa za mafunzo ya ICT, AI, Coding Bootcamps na Incubator ya kukuza startups za kidijitali Tanzania. Mfumo utakuwa hewani hivi karibuni."
+      badge: "HAULA TECH HUB // COMING SOON",
+      title_en: "Haula Technology Hub — Coming Soon",
+      title_sw: "Haula Technology Hub — Inakuja Hivi Karibuni",
+      sub_en: "This division is currently under active preparation and will launch soon. For active services, please explore Haula Technologies.",
+      sub_sw: "Idara hii ipo kwenye maandalizi ya mwisho na itakuwa hewani hivi karibuni. Kwa huduma zinazofanya kazi sasa, karibu utembelee Haula Technologies."
     }
   };
 
@@ -199,7 +199,7 @@ document.addEventListener('DOMContentLoaded', () => {
       let moduleKey = targetLink.getAttribute('data-module') || targetLink.getAttribute('data-division');
       
       const divSaved = localStorage.getItem('haula_div_config');
-      const divConfig = divSaved ? JSON.parse(divSaved) : { transport: 'live', trading: 'live', security: 'live', techhub: 'live' };
+      const divConfig = divSaved ? JSON.parse(divSaved) : { transport: 'soon', trading: 'soon', security: 'soon', techhub: 'soon' };
 
       if (moduleKey && divConfig[moduleKey] === 'live') {
         return;
@@ -332,16 +332,35 @@ document.addEventListener('DOMContentLoaded', () => {
   const mobileDrawerMenu = document.getElementById('mobileDrawerMenu');
 
   if (mobileMenuBtn && mobileDrawerMenu) {
-    mobileMenuBtn.addEventListener('click', () => {
-      mobileMenuBtn.classList.toggle('active');
-      mobileDrawerMenu.classList.toggle('active');
-    });
+    function toggleMobileMenu(e) {
+      if (e) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+      const isActive = mobileDrawerMenu.classList.toggle('active');
+      mobileMenuBtn.classList.toggle('active', isActive);
+      document.body.style.overflow = isActive ? 'hidden' : '';
+    }
 
-    mobileDrawerMenu.querySelectorAll('.m-link').forEach(link => {
+    mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+
+    mobileDrawerMenu.querySelectorAll('.m-link, a').forEach(link => {
       link.addEventListener('click', () => {
         mobileMenuBtn.classList.remove('active');
         mobileDrawerMenu.classList.remove('active');
+        document.body.style.overflow = '';
       });
+    });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (mobileDrawerMenu.classList.contains('active') && 
+          !mobileDrawerMenu.contains(e.target) && 
+          !mobileMenuBtn.contains(e.target)) {
+        mobileMenuBtn.classList.remove('active');
+        mobileDrawerMenu.classList.remove('active');
+        document.body.style.overflow = '';
+      }
     });
   }
 
@@ -659,5 +678,66 @@ document.addEventListener('DOMContentLoaded', () => {
       document.getElementById('drawerBackdrop')?.classList.remove('active');
     }
   });
+
+  /* Dynamic Testimonials Loader from Database API */
+  async function loadDynamicTestimonials() {
+    const grid = document.getElementById('testimonialsGrid');
+    if (!grid) return;
+
+    try {
+      const response = await fetch('/api/testimonials');
+      if (!response.ok) return;
+      const testimonials = await response.json();
+      const currentLang = localStorage.getItem('haula_lang') || 'EN';
+
+      if (testimonials && testimonials.length > 0) {
+        let html = '';
+        testimonials.forEach(item => {
+          const ratingCount = parseInt(item.rating) || 5;
+          const stars = '★'.repeat(ratingCount);
+          const quote = (currentLang === 'SW' && item.quote_sw) ? item.quote_sw : item.quote_en;
+          const avatar = item.avatar || '👨‍💼';
+          const role = item.author_role ? `<small>${item.author_role}</small>` : '';
+
+          html += `
+            <div class="testimonial-card">
+              <div class="test-stars">${stars}</div>
+              <p class="test-quote">"${quote}"</p>
+              <div class="test-author-row">
+                <div class="author-avatar">${avatar}</div>
+                <div class="author-info">
+                  <strong>${item.author_name}</strong>
+                  ${role}
+                </div>
+              </div>
+            </div>
+          `;
+        });
+        grid.innerHTML = html;
+      } else {
+        grid.innerHTML = `
+          <div style="grid-column: 1 / -1; text-align: center; padding: 40px 20px; background: rgba(255,255,255,0.6); border-radius: 16px; border: 1px dashed rgba(0,0,0,0.1);">
+            <div style="font-size: 32px; margin-bottom: 8px;">⭐️</div>
+            <p style="color: #64748b; font-size: 14px; font-weight: 500;" data-sw="Hakuna ushuhuda uliowekwa kwa sasa." data-en="No verified client testimonials available yet.">No verified client testimonials available yet.</p>
+          </div>
+        `;
+      }
+  /* Dynamic Testimonials Loader - Deferred via IntersectionObserver to avoid critical path request chaining */
+  const testimonialsGrid = document.getElementById('testimonialsGrid');
+  if (testimonialsGrid) {
+    if ('IntersectionObserver' in window) {
+      const testimonialsObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            loadDynamicTestimonials();
+            testimonialsObserver.disconnect();
+          }
+        });
+      }, { rootMargin: '300px' });
+      testimonialsObserver.observe(testimonialsGrid);
+    } else {
+      setTimeout(loadDynamicTestimonials, 2000);
+    }
+  }
 
 });
