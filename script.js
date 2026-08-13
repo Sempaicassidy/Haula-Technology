@@ -703,11 +703,22 @@ document.addEventListener('DOMContentLoaded', () => {
           </div>
         `;
       }
-    } catch (err) {
-      console.error('Error loading testimonials:', err);
+  /* Dynamic Testimonials Loader - Deferred via IntersectionObserver to avoid critical path request chaining */
+  const testimonialsGrid = document.getElementById('testimonialsGrid');
+  if (testimonialsGrid) {
+    if ('IntersectionObserver' in window) {
+      const testimonialsObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            loadDynamicTestimonials();
+            testimonialsObserver.disconnect();
+          }
+        });
+      }, { rootMargin: '300px' });
+      testimonialsObserver.observe(testimonialsGrid);
+    } else {
+      setTimeout(loadDynamicTestimonials, 2000);
     }
   }
-
-  loadDynamicTestimonials();
 
 });
