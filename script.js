@@ -660,4 +660,54 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  /* Dynamic Testimonials Loader from Database API */
+  async function loadDynamicTestimonials() {
+    const grid = document.getElementById('testimonialsGrid');
+    if (!grid) return;
+
+    try {
+      const response = await fetch('/api/testimonials');
+      if (!response.ok) return;
+      const testimonials = await response.json();
+      const currentLang = localStorage.getItem('haula_lang') || 'EN';
+
+      if (testimonials && testimonials.length > 0) {
+        let html = '';
+        testimonials.forEach(item => {
+          const ratingCount = parseInt(item.rating) || 5;
+          const stars = '★'.repeat(ratingCount);
+          const quote = (currentLang === 'SW' && item.quote_sw) ? item.quote_sw : item.quote_en;
+          const avatar = item.avatar || '👨‍💼';
+          const role = item.author_role ? `<small>${item.author_role}</small>` : '';
+
+          html += `
+            <div class="testimonial-card">
+              <div class="test-stars">${stars}</div>
+              <p class="test-quote">"${quote}"</p>
+              <div class="test-author-row">
+                <div class="author-avatar">${avatar}</div>
+                <div class="author-info">
+                  <strong>${item.author_name}</strong>
+                  ${role}
+                </div>
+              </div>
+            </div>
+          `;
+        });
+        grid.innerHTML = html;
+      } else {
+        grid.innerHTML = `
+          <div style="grid-column: 1 / -1; text-align: center; padding: 40px 20px; background: rgba(255,255,255,0.6); border-radius: 16px; border: 1px dashed rgba(0,0,0,0.1);">
+            <div style="font-size: 32px; margin-bottom: 8px;">⭐️</div>
+            <p style="color: #64748b; font-size: 14px; font-weight: 500;" data-sw="Hakuna ushuhuda uliowekwa kwa sasa." data-en="No verified client testimonials available yet.">No verified client testimonials available yet.</p>
+          </div>
+        `;
+      }
+    } catch (err) {
+      console.error('Error loading testimonials:', err);
+    }
+  }
+
+  loadDynamicTestimonials();
+
 });

@@ -492,7 +492,7 @@
       </section>
 
       <!-- SECTION 5: CLIENT TESTIMONIALS & REVIEWS SECTION -->
-      <!-- <section class="tesla-content-section bg-deepin-titanium" id="testimonials">
+      <section class="tesla-content-section bg-deepin-titanium" id="testimonials">
         <div class="section-container">
           <div class="tesla-section-header text-center" style="max-width: 720px; margin: 0 auto 40px auto;">
             <span class="hyper-pill-tag" data-sw="USHUHUDA WA WATEJA WETU" data-en="CLIENT TESTIMONIALS">CLIENT TESTIMONIALS</span>
@@ -502,51 +502,11 @@
             </p>
           </div>
 
-          <div class="testimonials-grid">
-            <div class="testimonial-card">
-              <div class="test-stars">★★★★★</div>
-              <p class="test-quote" data-sw="&quot;Mfumo wa Dawafy OS kutoka Haula Technologies umetusaidia kuzuia hasara ya dawa ku-expire na umerahisisha ukusanyaji wa kodi ya TRA kwa masaa 24.&quot;" data-en="&quot;Dawafy OS from Haula Technologies eliminated our pharmacy stock expiration losses and automated our TRA EFD tax invoicing flawlessly.&quot;">
-                "Dawafy OS from Haula Technologies eliminated our pharmacy stock expiration losses and automated our TRA EFD tax invoicing flawlessly."
-              </p>
-              <div class="test-author-row">
-                <div class="author-avatar">👨‍⚕️</div>
-                <div class="author-info">
-                  <strong>Dr. Rashid Said</strong>
-                  <small>Managing Director, Morogoro Pharmacy Group</small>
-                </div>
-              </div>
-            </div>
-
-            <div class="testimonial-card">
-              <div class="test-stars">★★★★★</div>
-              <p class="test-quote" data-sw="&quot;Kasi ya Haula Trading kutoa mizigo yetu ya makontena Bandari ya Dar es Salaam chini ya masaa 24 ni ya kiwango cha juu sana. Uaminifu wa 100%!&quot;" data-en="&quot;Haula Trading cleared our industrial container shipments at Dar es Salaam Port in under 24 hours. Exceptional speed and integrity!&quot;">
-                "Haula Trading cleared our industrial container shipments at Dar es Salaam Port in under 24 hours. Exceptional speed and integrity!"
-              </p>
-              <div class="test-author-row">
-                <div class="author-avatar">🏭</div>
-                <div class="author-info">
-                  <strong>Eng. Juma Bakari</strong>
-                  <small>Supply Chain Logistics Manager, Dar Import Ltd</small>
-                </div>
-              </div>
-            </div>
-
-            <div class="testimonial-card">
-              <div class="test-stars">★★★★★</div>
-              <p class="test-quote" data-sw="&quot;Mafunzo ya ulinzi na mfumo wa Guard Patrol OS kutoka Haula Security yameongeza nidhamu na ufanisi wa walinzi wetu 150 kote jijini.&quot;" data-en="&quot;The security firm training and Guard Patrol OS software provided by Haula Security elevated the discipline and tracking of our 150 security officers.&quot;">
-                "The security firm training and Guard Patrol OS software provided by Haula Security elevated the discipline and tracking of our 150 security officers."
-              </p>
-              <div class="test-author-row">
-                <div class="author-avatar">🛡️</div>
-                <div class="author-info">
-                  <strong>Capt. Ally Hassan</strong>
-                  <small>Director of Security Operations, Executive Security Firm</small>
-                </div>
-              </div>
-            </div>
+          <div class="testimonials-grid" id="testimonialsGrid">
+            <!-- Dynamic Testimonials Loaded from Database API (/api/testimonials) -->
           </div>
         </div>
-      </section> -->
+      </section>
 
       <!-- SECTION 6: INTERACTIVE FAQ ACCORDION SECTION -->
       <section class="tesla-content-section" id="faq">

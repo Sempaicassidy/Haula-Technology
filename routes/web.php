@@ -6,6 +6,7 @@ use App\Http\Controllers\DivisionController;
 use App\Http\Controllers\SoftwareProductController;
 use App\Http\Controllers\StrategicPartnerController;
 use App\Http\Controllers\CorporateSettingController;
+use App\Http\Controllers\TestimonialController;
 
 // Web Views
 Route::get('/', function () {
@@ -67,4 +68,11 @@ Route::prefix('api')->group(function () {
     // Corporate Branding
     Route::get('/branding', [CorporateSettingController::class, 'show']);
     Route::post('/branding', [CorporateSettingController::class, 'update']);
+
+    // Testimonials
+    Route::get('/testimonials', [TestimonialController::class, 'index']);
+    Route::get('/testimonials/all', [TestimonialController::class, 'all']);
+    Route::post('/testimonials', [TestimonialController::class, 'store']);
+    Route::delete('/testimonials/{id}', [TestimonialController::class, 'destroy']);
+    Route::post('/testimonials/{id}/toggle', [TestimonialController::class, 'toggle']);
 });

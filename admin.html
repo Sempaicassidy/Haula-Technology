@@ -100,6 +100,11 @@
             <span data-sw="Washirika (Partners)" data-en="Partners Manager">Partners Manager</span>
           </button>
 
+          <button class="admin-nav-item" data-tab="testimonials">
+            <span class="a-icon">⭐️</span>
+            <span data-sw="Ushuhuda (Testimonials)" data-en="Testimonials Manager">Testimonials Manager</span>
+          </button>
+
           <button class="admin-nav-item" data-tab="content">
             <span class="a-icon">✏️</span>
             <span data-sw="Maudhui ya Website" data-en="Website Content">Website Content</span>
@@ -708,6 +713,67 @@
                   <button id="resetSystemBtn" class="hyper-btn-outline" style="background:transparent; color:#ef4444; border:1px solid #ef4444; padding:10px 20px; border-radius:12px; font-weight:700; cursor:pointer;">Reset System Data</button>
                 </div>
 
+              </div>
+            </div>
+          </section>
+
+          <!-- TAB 8: TESTIMONIALS MANAGER -->
+          <section class="admin-tab-panel" id="tab-testimonials">
+            <div style="background:#fff; border:1px solid rgba(0,0,0,0.08); border-radius:16px; padding:24px; box-shadow:0 4px 20px rgba(0,0,0,0.03);">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px; border-bottom:1px solid rgba(0,0,0,0.08); padding-bottom:14px;">
+                <div>
+                  <h2 style="font-size:18px; font-weight:700; color:#0f172a; margin:0;">⭐️ Enterprise Client Testimonials</h2>
+                  <small style="color:#64748b;">Manage real client reviews stored dynamically in the database.</small>
+                </div>
+                <button class="hyper-btn-primary" id="addTestimonialBtn" style="background:var(--hyper-orange); color:#fff; border:none; padding:10px 20px; border-radius:12px; font-weight:700; cursor:pointer;">+ Add Testimonial</button>
+              </div>
+
+              <!-- Create Testimonial Form Container -->
+              <div id="newTestimonialFormContainer" style="display:none; background:#f8fafc; border:1px solid rgba(0,0,0,0.08); border-radius:14px; padding:20px; margin-bottom:24px;">
+                <h3 style="font-size:15px; font-weight:700; color:#0f172a; margin-bottom:14px;">New Client Testimonial Entry</h3>
+                <form id="createTestimonialForm" style="display:flex; flex-direction:column; gap:14px;">
+                  <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px;">
+                    <div>
+                      <label style="font-size:11px; font-weight:700; color:#64748b; text-transform:uppercase;">Client / Author Name *</label>
+                      <input type="text" id="testAuthorName" class="div-subtitle-input" style="width:100%;" required placeholder="e.g. Dr. Rashid Said" />
+                    </div>
+                    <div>
+                      <label style="font-size:11px; font-weight:700; color:#64748b; text-transform:uppercase;">Title / Organization *</label>
+                      <input type="text" id="testAuthorRole" class="div-subtitle-input" style="width:100%;" required placeholder="e.g. Managing Director, Morogoro Pharmacy" />
+                    </div>
+                  </div>
+                  <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px;">
+                    <div>
+                      <label style="font-size:11px; font-weight:700; color:#64748b; text-transform:uppercase;">Avatar / Emoji Icon</label>
+                      <input type="text" id="testAvatar" class="div-subtitle-input" style="width:100%;" value="👨‍💼" placeholder="e.g. 👨‍⚕️ or 🛡️ or 🏭" />
+                    </div>
+                    <div>
+                      <label style="font-size:11px; font-weight:700; color:#64748b; text-transform:uppercase;">Star Rating (1-5)</label>
+                      <select id="testRating" class="div-subtitle-input" style="width:100%;">
+                        <option value="5" selected>5 Stars (★★★★★)</option>
+                        <option value="4">4 Stars (★★★★☆)</option>
+                        <option value="3">3 Stars (★★★☆☆)</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div>
+                    <label style="font-size:11px; font-weight:700; color:#64748b; text-transform:uppercase;">Testimonial Quote (English) *</label>
+                    <textarea id="testQuoteEN" class="div-subtitle-input" style="width:100%; height:75px;" required placeholder="Enter review text in English..."></textarea>
+                  </div>
+                  <div>
+                    <label style="font-size:11px; font-weight:700; color:#64748b; text-transform:uppercase;">Testimonial Quote (Swahili)</label>
+                    <textarea id="testQuoteSW" class="div-subtitle-input" style="width:100%; height:75px;" placeholder="Weka maoni kwa Kiswahili..."></textarea>
+                  </div>
+                  <div style="display:flex; justify-content:flex-end; gap:10px;">
+                    <button type="button" id="cancelTestimonialBtn" class="hyper-btn-outline" style="background:transparent; border:1px solid #cbd5e1; color:#64748b; padding:10px 18px; border-radius:10px; font-weight:700; cursor:pointer;">Cancel</button>
+                    <button type="submit" class="hyper-btn-primary" style="background:var(--hyper-orange); color:#fff; border:none; padding:10px 22px; border-radius:10px; font-weight:700; cursor:pointer;">Save to Database</button>
+                  </div>
+                </form>
+              </div>
+
+              <!-- List Container -->
+              <div id="adminTestimonialsList" style="display:grid; grid-template-columns:repeat(auto-fill, minmax(320px, 1fr)); gap:16px;">
+                <!-- Loaded dynamically by admin.js -->
               </div>
             </div>
           </section>

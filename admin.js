@@ -76,6 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
     messages: "Customer Inquiries & Messages Inbox",
     ecosystem: "Software Ecosystem & Product Control Panel",
     partners: "Strategic Partners Marquee Manager",
+    testimonials: "Enterprise Client Testimonials Manager",
     content: "Corporate Branding & Content Settings",
     settings: "System Security & Preferences"
   };
@@ -861,11 +862,140 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  /* 12. Testimonials Admin Engine */
+  const addTestimonialBtn = document.getElementById('addTestimonialBtn');
+  const newTestimonialFormContainer = document.getElementById('newTestimonialFormContainer');
+  const cancelTestimonialBtn = document.getElementById('cancelTestimonialBtn');
+  const createTestimonialForm = document.getElementById('createTestimonialForm');
+  const adminTestimonialsList = document.getElementById('adminTestimonialsList');
+
+  if (addTestimonialBtn && newTestimonialFormContainer) {
+    addTestimonialBtn.addEventListener('click', () => {
+      newTestimonialFormContainer.style.display = newTestimonialFormContainer.style.display === 'none' ? 'block' : 'none';
+    });
+  }
+
+  if (cancelTestimonialBtn && newTestimonialFormContainer) {
+    cancelTestimonialBtn.addEventListener('click', () => {
+      newTestimonialFormContainer.style.display = 'none';
+    });
+  }
+
+  if (createTestimonialForm) {
+    createTestimonialForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const name = document.getElementById('testAuthorName')?.value.trim();
+      const role = document.getElementById('testAuthorRole')?.value.trim();
+      const avatar = document.getElementById('testAvatar')?.value.trim() || '👨‍💼';
+      const rating = document.getElementById('testRating')?.value || '5';
+      const quote_en = document.getElementById('testQuoteEN')?.value.trim();
+      const quote_sw = document.getElementById('testQuoteSW')?.value.trim() || quote_en;
+
+      if (!name || !quote_en) {
+        showToast('❌ Please fill in required fields');
+        return;
+      }
+
+      try {
+        const response = await fetch('/api/testimonials', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({ author_name: name, author_role: role, avatar, rating: parseInt(rating), quote_en, quote_sw })
+        });
+
+        if (response.ok) {
+          showToast('✓ Testimonial saved successfully!');
+          createTestimonialForm.reset();
+          if (newTestimonialFormContainer) newTestimonialFormContainer.style.display = 'none';
+          loadAdminTestimonials();
+        } else {
+          showToast('❌ Failed to save testimonial');
+        }
+      } catch (err) {
+        console.error(err);
+        showToast('❌ Error connecting to server');
+      }
+    });
+  }
+
+  async function loadAdminTestimonials() {
+    if (!adminTestimonialsList) return;
+
+    try {
+      const response = await fetch('/api/testimonials/all');
+      if (!response.ok) return;
+      const data = await response.json();
+
+      if (data && data.length > 0) {
+        let html = '';
+        data.forEach(item => {
+          const stars = '★'.repeat(item.rating || 5);
+          html += `
+            <div style="background:#f8fafc; border:1px solid rgba(0,0,0,0.08); border-radius:14px; padding:16px; position:relative;">
+              <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;">
+                <div style="display:flex; align-items:center; gap:10px;">
+                  <span style="font-size:24px;">${item.avatar || '👨‍💼'}</span>
+                  <div>
+                    <strong style="display:block; font-size:14px; color:#0f172a;">${item.author_name}</strong>
+                    <small style="color:#64748b; font-size:12px;">${item.author_role || ''}</small>
+                  </div>
+                </div>
+              </div>
+              <div style="color:var(--hyper-orange); font-size:12px; margin-bottom:8px;">${stars}</div>
+              <p style="font-size:13px; color:#334155; font-style:italic; margin-bottom:14px; line-height:1.4;">"${item.quote_en}"</p>
+              <div style="display:flex; justify-content:space-between; align-items:center; border-top:1px solid rgba(0,0,0,0.06); padding-top:10px;">
+                <button onclick="toggleTestimonial(${item.id})" class="hyper-btn-outline" style="font-size:11px; padding:4px 10px; border-radius:8px; background:${item.is_active ? 'rgba(16,185,129,0.1)' : '#f1f5f9'}; color:${item.is_active ? '#10b981' : '#64748b'}; border:1px solid ${item.is_active ? 'rgba(16,185,129,0.2)' : '#cbd5e1'}; font-weight:700; cursor:pointer;">
+                  ${item.is_active ? '● Active' : '○ Hidden'}
+                </button>
+                <button onclick="deleteTestimonial(${item.id})" style="background:none; border:none; color:#ef4444; font-size:12px; font-weight:700; cursor:pointer;">Delete</button>
+              </div>
+            </div>
+          `;
+        });
+        adminTestimonialsList.innerHTML = html;
+      } else {
+        adminTestimonialsList.innerHTML = `
+          <div style="grid-column:1 / -1; text-align:center; padding:30px; color:#94a3b8; font-size:13.5px;">
+            No client testimonials in database yet. Click "+ Add Testimonial" above to create one.
+          </div>
+        `;
+      }
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
+  window.toggleTestimonial = async function(id) {
+    try {
+      const response = await fetch(`/api/testimonials/${id}/toggle`, { method: 'POST' });
+      if (response.ok) {
+        showToast('✓ Status updated');
+        loadAdminTestimonials();
+      }
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  window.deleteTestimonial = async function(id) {
+    if (!confirm('Are you sure you want to delete this testimonial?')) return;
+    try {
+      const response = await fetch(`/api/testimonials/${id}`, { method: 'DELETE' });
+      if (response.ok) {
+        showToast('✓ Testimonial deleted');
+        loadAdminTestimonials();
+      }
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
   /* Initial Page Load Execution */
   checkAuth();
   loadDivisionConfig();
   loadEcosystemConfig();
   loadMessages();
   loadPartners();
+  loadAdminTestimonials();
 
 });
