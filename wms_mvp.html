@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Haula WMS — Warehouse & Business Operations Platform</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg-main: #f8fafc;
+  --sidebar-bg: #0f172a;
+  --sidebar-muted: #94a3b8;
+  --sidebar-active: #1e293b;
+  --topbar-bg: #ffffff;
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+  --border-color: #e2e8f0;
+  --card-bg: #ffffff;
+  --primary: #0284c7;
+  --primary-hover: #0369a1;
+  --success: #16a34a;
+  --warning: #d97706;
+  --danger: #dc2626;
+  --info: #2563eb;
+  --purple: #7c3aed;
+  --radius: 12px;
+  --shadow: 0 1px 3px rgba(0,0,0,0.05), 0 1px 2px rgba(0,0,0,0.1);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', system-ui, -apple-system, sans-serif; }
+body { background: var(--bg-main); color: var(--text-main); line-height: 1.5; font-size: 13px; }
+
+.app { display: flex; min-height: 100vh; }
+
+/* Sidebar */
+.sidebar {
+  width: 260px;
+  background: var(--sidebar-bg);
+  color: #e2e8f0;
+  padding: 20px 14px;
+  position: fixed;
+  inset: 0 auto 0 0;
+  overflow-y: auto;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+}
+.brand {
+  font-size: 20px;
+  font-weight: 800;
+  color: #fff;
+  padding: 8px 12px 18px;
+  letter-spacing: -0.02em;
+  border-bottom: 1px solid #1e293b;
+  margin-bottom: 12px;
+}
+.brand span { color: var(--primary); }
+.brand small { display: block; font-size: 11px; color: var(--sidebar-muted); font-weight: 400; margin-top: 2px; }
+
+.nav-group { margin-bottom: 16px; }
+.nav-title { font-size: 10px; text-transform: uppercase; color: #64748b; padding: 10px 12px 6px; letter-spacing: 0.08em; font-weight: 700; }
+.nav button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  border: 0;
+  background: transparent;
+  color: #cbd5e1;
+  text-align: left;
+  padding: 9px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  transition: all 0.15s ease;
+  margin: 2px 0;
+}
+.nav button:hover { background: #1e293b; color: #fff; }
+.nav button.active { background: var(--primary); color: #fff; font-weight: 600; box-shadow: 0 4px 12px rgba(2, 132, 199, 0.3); }
+.nav button .icon { width: 18px; text-align: center; font-size: 14px; opacity: 0.85; }
+
+/* Main Content Area */
+.main { margin-left: 260px; width: calc(100% - 260px); display: flex; flex-direction: column; min-height: 100vh; }
+
+/* Top Header Bar */
+.top {
+  height: 68px;
+  background: var(--topbar-bg);
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 28px;
+  position: sticky;
+  top: 0;
+  z-index: 5;
+}
+.top-left h1 { font-size: 18px; font-weight: 700; color: var(--text-main); }
+.top-left .tenant-badge { display: inline-flex; align-items: center; gap: 6px; font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+.top-left .tenant-badge i { width: 8px; height: 8px; border-radius: 50%; background: var(--success); display: inline-block; }
+
+.top-right { display: flex; align-items: center; gap: 16px; }
+.role-selector { background: #f1f5f9; border: 1px solid var(--border-color); padding: 5px 10px; border-radius: 8px; font-size: 12px; outline: none; cursor: pointer; color: var(--text-main); font-weight: 500; }
+.user-profile { display: flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 600; }
+.avatar { width: 36px; height: 36px; border-radius: 50%; background: #0284c7; color: #fff; display: grid; place-items: center; font-weight: 700; font-size: 13px; }
+
+/* Section Content */
+.content { padding: 24px 28px; flex: 1; }
+.page { display: none; }
+.page.active { display: block; animation: fadeIn 0.2s ease-in; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(3px); } to { opacity: 1; transform: translateY(0); } }
+
+/* Grid Layouts */
+.grid { display: grid; gap: 18px; }
+.cards { grid-template-columns: repeat(4, 1fr); }
+.two { grid-template-columns: 1.4fr 1fr; }
+.three { grid-template-columns: repeat(3, 1fr); }
+.equal-two { grid-template-columns: repeat(2, 1fr); }
+
+/* Components */
+.card { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: var(--radius); padding: 20px; box-shadow: var(--shadow); }
+.kpi { display: flex; align-items: center; justify-content: space-between; }
+.kpi .label { font-size: 12px; color: var(--text-muted); font-weight: 500; }
+.kpi .value { font-size: 24px; font-weight: 800; margin-top: 6px; color: var(--text-main); letter-spacing: -0.02em; }
+.kpi .trend { font-size: 11px; margin-top: 6px; font-weight: 600; display: flex; align-items: center; gap: 4px; }
+.trend.up { color: var(--success); }
+.trend.neutral { color: var(--text-muted); }
+.trend.down { color: var(--danger); }
+
+.iconbox { width: 42px; height: 42px; border-radius: 10px; background: #f0f9ff; color: var(--primary); display: grid; place-items: center; font-weight: 800; font-size: 15px; }
+
+.section-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
+.section-head h2 { font-size: 16px; font-weight: 700; color: var(--text-main); }
+.actions { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 0;
+  border-radius: 8px;
+  padding: 8px 14px;
+  background: var(--sidebar-bg);
+  color: #fff;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 600;
+  transition: all 0.15s ease;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+.btn:hover { background: #1e293b; opacity: 0.95; }
+.btn.primary { background: var(--primary); }
+.btn.primary:hover { background: var(--primary-hover); }
+.btn.secondary { background: #fff; color: #334155; border: 1px solid var(--border-color); }
+.btn.secondary:hover { background: #f8fafc; }
+.btn.success { background: var(--success); color: #fff; }
+.btn.warn { background: var(--warning); color: #fff; }
+.btn.sm { padding: 5px 10px; font-size: 11px; border-radius: 6px; }
+
+/* Table Wrappers */
+.table-wrap { background: #fff; border: 1px solid var(--border-color); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
+.table { width: 100%; border-collapse: collapse; font-size: 12px; }
+.table th, .table td { padding: 12px 16px; text-align: left; border-bottom: 1px solid #f1f5f9; white-space: nowrap; }
+.table th { font-size: 11px; text-transform: uppercase; color: var(--text-muted); background: #f8fafc; font-weight: 700; letter-spacing: 0.04em; }
+.table tr:hover { background: #f8fafc; }
+.table tr:last-child td { border-bottom: 0; }
+
+.badge { display: inline-flex; align-items: center; gap: 4px; padding: 3px 8px; border-radius: 999px; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.03em; }
+.badge.green { background: #dcfce7; color: #15803d; }
+.badge.orange { background: #fef3c7; color: #b45309; }
+.badge.red { background: #fee2e2; color: #b91c1c; }
+.badge.blue { background: #dbeafe; color: #1d4ed8; }
+.badge.purple { background: #f3e8ff; color: #6b21a8; }
+.badge.gray { background: #f1f5f9; color: #475569; }
+
+/* Workflow Steps */
+.workflow { display: flex; gap: 8px; align-items: center; overflow-x: auto; padding: 10px 0; }
+.step { flex: 1; min-width: 120px; background: #f8fafc; border: 1px solid var(--border-color); border-radius: 10px; padding: 12px; text-align: center; font-size: 11px; }
+.step.active { background: #f0f9ff; border-color: #7dd3fc; color: #0369a1; font-weight: 600; }
+.arrow { color: #94a3b8; font-weight: 700; }
+
+.bar { height: 9px; background: #e2e8f0; border-radius: 20px; overflow: hidden; margin-top: 6px; }
+.bar i { display: block; height: 100%; background: var(--primary); border-radius: 20px; }
+.metric { display: flex; justify-content: space-between; margin: 12px 0 3px; font-size: 12px; font-weight: 500; }
+
+.timeline { border-left: 2px solid #e2e8f0; padding-left: 18px; margin-left: 6px; }
+.event { margin: 0 0 18px; position: relative; }
+.event::before { content: ""; position: absolute; left: -24px; top: 4px; width: 10px; height: 10px; background: var(--primary); border-radius: 50%; border: 2px solid #fff; }
+.event strong { font-size: 12px; color: var(--text-main); }
+.event p { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+
+.search { padding: 8px 14px; border: 1px solid var(--border-color); border-radius: 8px; outline: none; width: 240px; font-size: 12px; background: #fff; }
+.search:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.1); }
+
+.notice { padding: 14px 16px; border-radius: 10px; background: #fffbeb; border: 1px solid #fde68a; color: #92400e; font-size: 12px; margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
+
+/* Modal */
+.modal { display: none; position: fixed; inset: 0; background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(3px); z-index: 100; align-items: center; justify-content: center; }
+.modal.show { display: flex; }
+.modal-box { background: #fff; width: min(680px, 92vw); border-radius: 16px; padding: 24px; max-height: 90vh; overflow-y: auto; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1); }
+.modal-head { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-color); padding-bottom: 14px; margin-bottom: 16px; }
+.modal-head h2 { font-size: 16px; font-weight: 700; }
+.close { border: 0; background: none; font-size: 24px; cursor: pointer; color: var(--text-muted); }
+.close:hover { color: var(--text-main); }
+
+.formgrid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+.field label { display: block; font-size: 11px; font-weight: 600; color: #475569; margin-bottom: 5px; text-transform: uppercase; letter-spacing: 0.02em; }
+.field input, .field select, .field textarea { width: 100%; border: 1px solid var(--border-color); border-radius: 8px; padding: 9px 12px; font-size: 12px; outline: none; background: #fff; }
+.field input:focus, .field select:focus, .field textarea:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.1); }
+.field textarea { min-height: 70px; resize: vertical; }
+.field.full { grid-column: 1 / -1; }
+
+/* Toast Notifications */
+.toast { position: fixed; bottom: 20px; right: 20px; background: #0f172a; color: #fff; padding: 12px 20px; border-radius: 10px; font-size: 12px; font-weight: 500; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); transform: translateY(100px); opacity: 0; transition: all 0.3s ease; z-index: 200; display: flex; align-items: center; gap: 10px; }
+.toast.show { transform: translateY(0); opacity: 1; }
+
+@media(max-width: 1024px) {
+  .cards { grid-template-columns: repeat(2, 1fr); }
+  .sidebar { width: 220px; }
+  .main { margin-left: 220px; width: calc(100% - 220px); }
+}
+@media(max-width: 768px) {
+  .sidebar { position: relative; width: 100%; height: auto; }
+  .main { margin: 0; width: 100%; }
+  .app { display: block; }
+  .cards, .two, .three, .equal-two, .formgrid { grid-template-columns: 1fr; }
+  .top { position: relative; padding: 0 16px; }
+  .content { padding: 16px; }
+}
+</style>
+</head>
+<body>
+
+<div class="app">
+  <!-- Sidebar Navigation -->
+  <aside class="sidebar">
+    <div class="brand">HAULA <span>WMS</span><small>Operations & Compliance Platform</small></div>
+    
+    <div class="nav" id="nav">
+      <div class="nav-group">
+        <div class="nav-title">Overview</div>
+        <button class="active" data-page="dashboard"><span class="icon">◈</span> Dashboard</button>
+        <button data-page="command"><span class="icon">▣</span> Command Centre</button>
+      </div>
+
+      <div class="nav-group">
+        <div class="nav-title">Warehouse Operations</div>
+        <button data-page="warehouses"><span class="icon">▤</span> Warehouses & Bins</button>
+        <button data-page="inventory"><span class="icon">▦</span> Inventory Control</button>
+        <button data-page="receiving"><span class="icon">⇩</span> Receiving / GRN</button>
+        <button data-page="issuing"><span class="icon">⇧</span> Issuing & Dispatch</button>
+        <button data-page="transfers"><span class="icon">⇄</span> Stock Transfers</button>
+        <button data-page="counting"><span class="icon">◫</span> Stock Count & Reconciliation</button>
+        <button data-page="quality"><span class="icon">✓</span> Quality & Lab Inspection</button>
+      </div>
+
+      <div class="nav-group">
+        <div class="nav-title">Procurement & Sales</div>
+        <button data-page="procurement"><span class="icon">▧</span> Procurement (PSPTB)</button>
+        <button data-page="sales"><span class="icon">▰</span> Sales / POS Terminal</button>
+        <button data-page="suppliers"><span class="icon">◉</span> Partners & Suppliers</button>
+      </div>
+
+      <div class="nav-group">
+        <div class="nav-title">Agriculture & Supply Chain</div>
+        <button data-page="agriculture"><span class="icon">♧</span> Crops, Farmers & Lots</button>
+      </div>
+
+      <div class="nav-group">
+        <div class="nav-title">Governance & Finance</div>
+        <button data-page="accounting"><span class="icon">◎</span> Financial Event Ledger</button>
+        <button data-page="approvals"><span class="icon">⌁</span> Approvals & SoD</button>
+        <button data-page="audit"><span class="icon">◌</span> Immutable Audit Trail</button>
+      </div>
+
+      <div class="nav-group">
+        <div class="nav-title">Platform</div>
+        <button data-page="reports"><span class="icon">▥</span> Reports & Compliance</button>
+        <button data-page="integrations"><span class="icon">⇌</span> API & Integrations</button>
+        <button data-page="settings"><span class="icon">⚙</span> Tenant & Security Settings</button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main Container -->
+  <main class="main">
+    <header class="top">
+      <div class="top-left">
+        <h1 id="pageTitle">Dashboard</h1>
+        <div class="tenant-badge"><i></i> Tenant: <b>Haula Demo Trading Ltd</b> · Multi-Warehouse Mode</div>
+      </div>
+      <div class="top-right">
+        <select class="role-selector" id="roleSelector" onchange="switchRole(this.value)">
+          <option value="Admin">Role: Super Admin</option>
+          <option value="Storekeeper">Role: Storekeeper</option>
+          <option value="PSPTB Auditor">Role: PSPTB Auditor</option>
+          <option value="WRRB Inspector">Role: WRRB Inspector</option>
+        </select>
+        <div class="user-profile">
+          <span>Demo User</span>
+          <div class="avatar" id="avatarBadge">HU</div>
+        </div>
+      </div>
+    </header>
+
+    <section class="content">
+
+      <!-- DASHBOARD PAGE -->
+      <div class="page active" id="dashboard">
+        <div class="grid cards" style="margin-bottom: 18px;">
+          <div class="card kpi">
+            <div>
+              <div class="label">Total Inventory Value</div>
+              <div class="value">TZS 1.24B</div>
+              <div class="trend up">↑ 8.4% this month</div>
+            </div>
+            <div class="iconbox">IV</div>
+          </div>
+          <div class="card kpi">
+            <div>
+              <div class="label">Stock on Hand</div>
+              <div class="value">48,293</div>
+              <div class="trend neutral">12,438 Active SKUs</div>
+            </div>
+            <div class="iconbox">ST</div>
+          </div>
+          <div class="card kpi">
+            <div>
+              <div class="label">Low Stock Alerts</div>
+              <div class="value" style="color:var(--warning)">37</div>
+              <div class="trend down">9 Critical Reorders</div>
+            </div>
+            <div class="iconbox">!</div>
+          </div>
+          <div class="card kpi">
+            <div>
+              <div class="label">Stock Accuracy KPI</div>
+              <div class="value" style="color:var(--success)">98.7%</div>
+              <div class="trend up">Cycle Count Variance 0.4%</div>
+            </div>
+            <div class="iconbox">✓</div>
+          </div>
+        </div>
+
+        <div class="grid two" style="margin-bottom: 18px;">
+          <div class="card">
+            <div class="section-head">
+              <h2>Operational Workflow Pipeline</h2>
+              <span class="badge green">Live Monitoring</span>
+            </div>
+            <div class="workflow">
+              <div class="step active">Requisition<br><b>18</b> pending</div>
+              <span class="arrow">→</span>
+              <div class="step">Purchase Order<br><b>12</b> open</div>
+              <span class="arrow">→</span>
+              <div class="step">Receiving<br><b>7</b> today</div>
+              <span class="arrow">→</span>
+              <div class="step">Put-away<br><b>5</b> pending</div>
+              <span class="arrow">→</span>
+              <div class="step">Dispatch<br><b>26</b> pending</div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="section-head"><h2>Critical Alerts</h2></div>
+            <div class="notice">⚠️ 9 SKUs critically below reorder level (Medical & Construction).</div>
+            <div class="notice" style="background:#f0fdf4; border-color:#bbf7d0; color:#166534">🌾 3 Agricultural lots require Lab Moisture Quality verification.</div>
+            <div class="notice" style="background:#fef2f2; border-color:#fecaca; color:#991b1b">🔴 Dar Distribution Hub is at 91% capacity limit.</div>
+          </div>
+        </div>
+
+        <div class="grid two">
+          <div class="card">
+            <div class="section-head">
+              <h2>Warehouse Capacity Utilization</h2>
+              <button class="btn secondary sm" onclick="go('warehouses')">View All</button>
+            </div>
+            <div class="metric"><span>Morogoro Main Facility</span><b>78%</b></div>
+            <div class="bar"><i style="width:78%"></i></div>
+            <div class="metric"><span>Dar es Salaam Hub</span><b style="color:var(--danger)">91%</b></div>
+            <div class="bar"><i style="width:91%; background:var(--danger)"></i></div>
+            <div class="metric"><span>Dodoma Commodity Silo</span><b>64%</b></div>
+            <div class="bar"><i style="width:64%"></i></div>
+            <div class="metric"><span>Arusha Depot</span><b>52%</b></div>
+            <div class="bar"><i style="width:52%"></i></div>
+          </div>
+
+          <div class="card">
+            <div class="section-head"><h2>Recent Audit Timeline</h2></div>
+            <div class="timeline">
+              <div class="event">
+                <strong>GRN-000248 Posted</strong>
+                <p>500 bags maize received · Morogoro Main · QC Passed</p>
+              </div>
+              <div class="event">
+                <strong>TRF-000118 Approved</strong>
+                <p>2,000 units transferred to Dar Distribution Hub</p>
+              </div>
+              <div class="event">
+                <strong>REQ-000451 Submitted (PSPTB Flow)</strong>
+                <p>Maintenance department requisition · TZS 3.8M</p>
+              </div>
+              <div class="event">
+                <strong>Stock Count Reconciled</strong>
+                <p>Zone B Count · Discrepancy variance 0.4% approved by auditor</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- COMMAND CENTRE -->
+      <div class="page" id="command">
+        <div class="grid cards" style="margin-bottom: 18px;">
+          <div class="card"><div class="label">Total Managed Warehouses</div><div class="value">247</div></div>
+          <div class="card"><div class="label">National Storage Capacity</div><div class="value">1.8M MT</div></div>
+          <div class="card"><div class="label">Current Grain/Goods Stock</div><div class="value">1.24M MT</div></div>
+          <div class="card"><div class="label">National Utilization</div><div class="value">69%</div></div>
+        </div>
+        <div class="section-head">
+          <h2>National & Regional Warehouse Command Centre (WRRB View)</h2>
+          <div class="actions">
+            <input class="search" placeholder="Filter region or warehouse..." onkeyup="filterTable(this)">
+            <button class="btn primary" onclick="showToast('Refreshing national warehouse metrics...')">Refresh Live Stream</button>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table class="table">
+            <thead>
+              <tr><th>Warehouse Code</th><th>Facility Name</th><th>Region</th><th>Licensed Capacity</th><th>Current Stock</th><th>Utilization</th><th>Regulatory Status</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>WH-MOR-017</td><td>Morogoro Main Grains</td><td>Morogoro</td><td>10,000 MT</td><td>7,850 MT</td><td>78.5%</td><td><span class="badge green">WRRB Licensed</span></td></tr>
+              <tr><td>WH-DAR-003</td><td>Dar es Salaam Terminal</td><td>Dar es Salaam</td><td>15,000 MT</td><td>13,650 MT</td><td>91.0%</td><td><span class="badge orange">Near Capacity</span></td></tr>
+              <tr><td>WH-DOD-008</td><td>Dodoma Strategic Reserve</td><td>Dodoma</td><td>12,000 MT</td><td>7,680 MT</td><td>64.0%</td><td><span class="badge green">WRRB Licensed</span></td></tr>
+              <tr><td>WH-ARS-021</td><td>Arusha Regional Depot</td><td>Arusha</td><td>9,500 MT</td><td>4,940 MT</td><td>52.0%</td><td><span class="badge green">WRRB Licensed</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- WAREHOUSES & LOCATIONS -->
+      <div class="page" id="warehouses">
+        <div class="section-head">
+          <h2>Warehouses & Location Hierarchy (Zone / Rack / Bin)</h2>
+          <button class="btn primary" onclick="openModal('Add Warehouse Facility', 'warehouses')">+ Add Warehouse</button>
+        </div>
+        <div class="table-wrap">
+          <table class="table">
+            <thead>
+              <tr><th>ID</th><th>Facility Name</th><th>Type</th><th>Location Structure</th><th>Capacity</th><th>Occupancy</th><th>Manager</th><th>Actions</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>WH-001</td><td>Morogoro Main</td><td>General & Grain</td><td>Zone A-D / Racks / Bins</td><td>10,000 MT</td><td>78%</td><td>J. Mushi</td><td><button class="btn secondary sm" onclick="showToast('Viewing bin map for WH-001')">Explore Bins</button></td></tr>
+              <tr><td>WH-002</td><td>Dar Distribution</td><td>Distribution Hub</td><td>Zone A-F / Pallet Racks</td><td>15,000 MT</td><td>91%</td><td>A. Salum</td><td><button class="btn secondary sm" onclick="showToast('Viewing bin map for WH-002')">Explore Bins</button></td></tr>
+              <tr><td>WH-003</td><td>Dodoma Hub</td><td>Government Store</td><td>Zone A-C / Silos</td><td>12,000 MT</td><td>64%</td><td>M. John</td><td><button class="btn secondary sm" onclick="showToast('Viewing bin map for WH-003')">Explore Bins</button></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- INVENTORY CONTROL -->
+      <div class="page" id="inventory">
+        <div class="section-head">
+          <h2>Inventory Control & Batch Tracking</h2>
+          <div class="actions">
+            <input class="search" placeholder="Search SKU, batch, lot, serial..." onkeyup="filterTable(this)">
+            <button class="btn primary" onclick="openModal('Register Product SKU', 'inventory')">+ Add Product SKU</button>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table class="table">
+            <thead>
+              <tr><th>SKU</th><th>Product Description</th><th>Warehouse</th><th>Bin Location</th><th>Batch / Lot</th><th>Qty on Hand</th><th>Reorder Level</th><th>Status</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>MAI-050</td><td>Maize Grain 50kg Bags</td><td>Morogoro Main</td><td>A-02-R04-B11</td><td>AGR-26-0087</td><td>4,500</td><td>1,000</td><td><span class="badge green">Available</span></td></tr>
+              <tr><td>CEM-042</td><td>Cement Portland 42.5N</td><td>Dar Distribution</td><td>B-04-R02-B03</td><td>LOT-5581</td><td>380</td><td>500</td><td><span class="badge orange">Low Stock</span></td></tr>
+              <tr><td>OIL-001</td><td>Refined Sunflower Oil 5L</td><td>Dodoma Hub</td><td>C-01-S03</td><td>LOT-OIL-18</td><td>2,180</td><td>400</td><td><span class="badge green">Available</span></td></tr>
+              <tr><td>MED-220</td><td>Sterile Gloves Medical</td><td>Morogoro Main</td><td>QC-01</td><td>LOT-MG-09</td><td>120</td><td>200</td><td><span class="badge red">Critical Reorder</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- RECEIVING / GRN -->
+      <div class="page" id="receiving">
+        <div class="section-head">
+          <h2>Goods Received Note (GRN) Management</h2>
+          <button class="btn primary" onclick="openModal('Create Goods Received Note (GRN)', 'receiving')">+ Create GRN</button>
+        </div>
+        <div class="grid cards" style="margin-bottom: 18px;">
+          <div class="card"><div class="label">Pending Deliveries</div><div class="value">18</div></div>
+          <div class="card"><div class="label">GRNs Posted Today</div><div class="value">7</div></div>
+          <div class="card"><div class="label">Under Quality Inspection</div><div class="value">3</div></div>
+          <div class="card"><div class="label">Quantity Discrepancies</div><div class="value">2</div></div>
+        </div>
+        <div class="table-wrap">
+          <table class="table">
+            <thead>
+              <tr><th>GRN Reference</th><th>Supplier Name</th><th>PO Number</th><th>Warehouse</th><th>Received Items</th><th>QC Status</th><th>Accounting Status</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>GRN-000248</td><td>Agro Supply Co.</td><td>PO-00481</td><td>Morogoro Main</td><td>500 bags maize</td><td><span class="badge green">Passed</span></td><td><span class="badge green">Posted to Ledger</span></td></tr>
+              <tr><td>GRN-000249</td><td>BuildMart Ltd</td><td>PO-00488</td><td>Dar Distribution</td><td>1,200 cement bags</td><td><span class="badge orange">Lab Hold</span></td><td><span class="badge gray">Pending QC</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- ISSUING & DISPATCH -->
+      <div class="page" id="issuing">
+        <div class="section-head">
+          <h2>Stock Issuing & Dispatch (SIV)</h2>
+          <button class="btn primary" onclick="openModal('Create Stock Issue / Dispatch', 'issuing')">+ Create Issue Voucher</button>
+        </div>
+        <div class="table-wrap">
+          <table class="table">
+            <thead>
+              <tr><th>Voucher Ref</th><th>Requester / Customer</th><th>Warehouse</th><th>Item Count</th><th>Approval Authority</th><th>Dispatch Status</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>ISS-000731</td><td>Maintenance Department</td><td>Morogoro Main</td><td>24 items</td><td>Manager Approved</td><td><span class="badge blue">Dispatched</span></td></tr>
+              <tr><td>DSP-000512</td><td>Retailer ABC Trading</td><td>Dar Distribution</td><td>86 cases</td><td>Sales Order #981</td><td><span class="badge orange">Picking Active</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- TRANSFERS -->
+      <div class="page" id="transfers">
+        <div class="section-head">
+          <h2>Inter-Warehouse Stock Transfers</h2>
+          <button class="btn primary" onclick="openModal('Initiate Inter-Warehouse Transfer', 'transfers')">+ New Transfer Request</button>
+        </div>
+        <div class="table-wrap">
+          <table class="table">
+            <thead>
+              <tr><th>Transfer Ref</th><th>Origin Warehouse</th><th>Destination Warehouse</th><th>Total Units</th><th>Initiated By</th><th>Transit Status</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>TRF-000118</td><td>Morogoro Main</td><td>Dar Distribution</td><td>2,000 units</td><td>Warehouse Admin</td><td><span class="badge green">Received</span></td></tr>
+              <tr><td>TRF-000119</td><td>Dodoma Hub</td><td>Arusha Depot</td><td>650 units</td><td>Logistics Lead</td><td><span class="badge orange">In Transit</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- STOCK COUNT -->
+      <div class="page" id="counting">
+        <div class="section-head">
+          <h2>Stock Count & Discrepancy Reconciliation</h2>
+          <button class="btn primary" onclick="openModal('Start Physical Cycle Count', 'counting')">+ Start Cycle Count</button>
+        </div>
+        <div class="grid three" style="margin-bottom: 18px;">
+          <div class="card"><div class="label">Open Counts</div><div class="value">6</div></div>
+          <div class="card"><div class="label">Completed This Month</div><div class="value">42</div></div>
+          <div class="card"><div class="label">Average System Accuracy</div><div class="value" style="color:var(--success)">98.7%</div></div>
+        </div>
+        <div class="table-wrap">
+          <table class="table">
+            <thead>
+              <tr><th>Count Ref</th><th>Target Zone / Bin</th><th>System Qty</th><th>Physical Count</th><th>Variance</th><th>Audit Action</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>CC-00291</td><td>Zone B - Bin R04</td><td>12,500</td><td>12,450</td><td>-50</td><td><span class="badge orange">Auditor Investigation</span></td></tr>
+              <tr><td>CC-00290</td><td>Zone A - Bin R01</td><td>8,800</td><td>8,800</td><td>0</td><td><span class="badge green">Closed & Approved</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- QUALITY CONTROL -->
+      <div class="page" id="quality">
+        <div class="section-head">
+          <h2>Quality Control & Lab Moisture Inspection</h2>
+          <button class="btn primary" onclick="openModal('Record Quality Inspection Result', 'quality')">+ Record Inspection</button>
+        </div>
+        <div class="table-wrap">
+          <table class="table">
+            <thead>
+              <tr><th>QC Ref</th><th>Lot Number</th><th>Commodity / Product</th><th>Testing Parameter</th><th>Lab Result</th><th>Standard Threshold</th><th>QC Decision</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>QC-00081</td><td>AGR-26-0087</td><td>Maize Grain</td><td>Moisture Content</td><td>13.2%</td><td>Max 13.5%</td><td><span class="badge green">Pass (Grade A)</span></td></tr>
+              <tr><td>QC-00082</td><td>AGR-26-0088</td><td>Dry Beans</td><td>Foreign Matter</td><td>2.8%</td><td>Max 1.0%</td><td><span class="badge red">Hold / Quarantine</span></td></tr>
+              <tr><td>QC-00083</td><td>LOT-OIL-18</td><td>Sunflower Oil 5L</td><td>Packaging Seal</td><td>Compliant</td><td>100% Intact</td><td><span class="badge green">Pass</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- PROCUREMENT (PSPTB) -->
+      <div class="page" id="procurement">
+        <div class="section-head">
+          <h2>Procurement Management (PSPTB Standards Aligned)</h2>
+          <button class="btn primary" onclick="openModal('Create Purchase Requisition (PR)', 'procurement')">+ New Requisition (PR)</button>
+        </div>
+        
+        <div class="card" style="margin-bottom: 18px;">
+          <div class="section-head"><h2>PSPTB Institutional Procurement Lifecycle</h2></div>
+          <div class="workflow">
+            <div class="step active">1. Need Requisition</div>
+            <span class="arrow">→</span>
+            <div class="step">2. Approval Hierarchy</div>
+            <span class="arrow">→</span>
+            <div class="step">3. Sourcing & Quotations</div>
+            <span class="arrow">→</span>
+            <div class="step">4. PO Contract</div>
+            <span class="arrow">→</span>
+            <div class="step">5. GRN Receiving</div>
+            <span class="arrow">→</span>
+            <div class="step">6. Invoice & Payment</div>
+          </div>
+        </div>
+
+        <div class="table-wrap">
+          <table class="table">
+            <thead>
+              <tr><th>PR/PO Ref</th><th>Department</th><th>Supplier Name</th><th>Total Value (TZS)</th><th>Procurement Stage</th><th>PSPTB Compliance</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>PR-000451</td><td>Maintenance & Facilities</td><td>— (Pending Bids)</td><td>TZS 3.8M</td><td>Approval Matrix</td><td><span class="badge orange">Awaiting HOD Signoff</span></td></tr>
+              <tr><td>PO-00481</td><td>Warehouse Operations</td><td>Agro Supply Co.</td><td>TZS 18.6M</td><td>Goods Receiving</td><td><span class="badge green">PSPTB Compliant</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- SALES / POS -->
+      <div class="page" id="sales">
+        <div class="section-head">
+          <h2>Sales Terminal & Point of Sale (POS)</h2>
+          <div class="actions">
+            <button class="btn primary" onclick="openModal('New Sales Transaction', 'sales')">+ New Sale</button>
+            <button class="btn secondary" onclick="showToast('Cashier shift register opened')">Shift Reconciliation</button>
+          </div>
+        </div>
+        <div class="grid cards" style="margin-bottom: 18px;">
+          <div class="card"><div class="label">Sales Today</div><div class="value">TZS 28.4M</div></div>
+          <div class="card"><div class="label">Completed Transactions</div><div class="value">486</div></div>
+          <div class="card"><div class="label">Returns / Credits</div><div class="value">7</div></div>
+          <div class="card"><div class="label">Accounts Receivable</div><div class="value">TZS 83M</div></div>
+        </div>
+        <div class="table-wrap">
+          <table class="table">
+            <thead>
+              <tr><th>Invoice Ref</th><th>Customer Name</th><th>Channel</th><th>Amount (TZS)</th><th>Payment Method</th><th>Status</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>INV-00981</td><td>Retailer ABC Store</td><td>POS Counter</td><td>TZS 1.24M</td><td>M-Pesa Mobile Money</td><td><span class="badge green">Paid & Dispatched</span></td></tr>
+              <tr><td>INV-00982</td><td>Distributor XYZ Enterprise</td><td>Direct Order</td><td>TZS 6.8M</td><td>Credit 30 Days</td><td><span class="badge orange">Receivable</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- SUPPLIERS & CUSTOMERS -->
+      <div class="page" id="suppliers">
+        <div class="section-head">
+          <h2>Partners Directory (Suppliers & Customers)</h2>
+          <button class="btn primary" onclick="openModal('Register Business Partner', 'suppliers')">+ Add Partner</button>
+        </div>
+        <div class="table-wrap">
+          <table class="table">
+            <thead>
+              <tr><th>Partner Code</th><th>Name</th><th>Partner Type</th><th>Contact Phone</th><th>Approved Credit Limit</th><th>Outstanding Balance</th><th>Status</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>SUP-001</td><td>Agro Supply Co. Ltd</td><td>Supplier</td><td>+255 754 123 456</td><td>—</td><td>TZS 18.6M Payable</td><td><span class="badge green">Active Partner</span></td></tr>
+              <tr><td>CUS-017</td><td>Retailer ABC Stores</td><td>Customer</td><td>+255 784 987 654</td><td>TZS 20.0M</td><td>TZS 4.2M Receivable</td><td><span class="badge green">Active Credit</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- AGRICULTURE & COMMODITY SUPPLY CHAIN -->
+      <div class="page" id="agriculture">
+        <div class="section-head">
+          <h2>Agriculture & Commodity Supply Chain Module</h2>
+          <div class="actions">
+            <button class="btn primary" onclick="openModal('Register Smallholder Farmer / Group', 'farmers')">+ Register Farmer</button>
+            <button class="btn primary" style="background:var(--success)" onclick="openModal('Receive Agricultural Commodity Lot', 'lots')">+ Receive Commodity Lot</button>
+          </div>
+        </div>
+
+        <div class="grid cards" style="margin-bottom: 18px;">
+          <div class="card"><div class="label">Registered Farmers</div><div class="value">1,284</div></div>
+          <div class="card"><div class="label">Total Grain Stock</div><div class="value">18,420 MT</div></div>
+          <div class="card"><div class="label">Lots Under QC Hold</div><div class="value">12</div></div>
+          <div class="card"><div class="label">Crop Traceability</div><div class="value" style="color:var(--success)">100%</div></div>
+        </div>
+
+        <div class="table-wrap">
+          <table class="table">
+            <thead>
+              <tr><th>Lot ID</th><th>Crop Commodity</th><th>Source / Cooperative</th><th>Quantity</th><th>Moisture Content</th><th>Quality Grade</th><th>Warehouse Destination</th><th>Lot Status</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>AGR-26-0087</td><td>Maize Grain</td><td>Coop MOR-14</td><td>500 MT</td><td>13.2%</td><td>Grade A</td><td>Morogoro Main</td><td><span class="badge green">Approved Stock</span></td></tr>
+              <tr><td>AGR-26-0088</td><td>Dry Beans</td><td>Farmer Group 31</td><td>180 MT</td><td>14.8%</td><td>Pending QC</td><td>Dodoma Hub</td><td><span class="badge orange">QC Hold (High Moisture)</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- ACCOUNTING -->
+      <div class="page" id="accounting">
+        <div class="section-head">
+          <h2>Financial Event Posting & General Ledger Integration</h2>
+          <button class="btn secondary" onclick="showToast('Exporting General Ledger transactions...')">Export GL Ledger</button>
+        </div>
+        <div class="grid cards" style="margin-bottom: 18px;">
+          <div class="card"><div class="label">Total Revenue</div><div class="value">TZS 284M</div></div>
+          <div class="card"><div class="label">Cost of Goods Sold (COGS)</div><div class="value">TZS 193M</div></div>
+          <div class="card"><div class="label">Gross Operating Profit</div><div class="value" style="color:var(--success)">TZS 91M</div></div>
+          <div class="card"><div class="label">Net Trade Receivables</div><div class="value">TZS 83M</div></div>
+        </div>
+        <div class="table-wrap">
+          <table class="table">
+            <thead>
+              <tr><th>Module Event</th><th>Debit Account</th><th>Credit Account</th><th>Document Reference</th><th>Posting Status</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Point of Sale Counter</td><td>1010 Cash / Accounts Receivable</td><td>4010 Product Revenue</td><td>INV-00981</td><td><span class="badge green">Posted Automatically</span></td></tr>
+              <tr><td>Goods Received (GRN)</td><td>1200 Inventory Account</td><td>2010 Accounts Payable</td><td>GRN-000248</td><td><span class="badge green">Posted Automatically</span></td></tr>
+              <tr><td>Stock Dispatch Issue</td><td>5010 Cost of Goods Sold (COGS)</td><td>1200 Inventory Account</td><td>ISS-000731</td><td><span class="badge green">Posted Automatically</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- APPROVALS & SOD -->
+      <div class="page" id="approvals">
+        <div class="section-head">
+          <h2>Workflow Approvals & Segregation of Duties (SoD)</h2>
+          <button class="btn primary" onclick="openModal('Configure Approval Matrix Rule', 'approvals')">+ Add Rule</button>
+        </div>
+        <div class="table-wrap">
+          <table class="table">
+            <thead>
+              <tr><th>Request Ref</th><th>Transaction Type</th><th>Value / Detail</th><th>Required Approver</th><th>SoD Check</th><th>Action</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>PR-000451</td><td>Procurement Requisition</td><td>TZS 3.8M</td><td>HOD Maintenance</td><td><span class="badge green">Passed SoD</span></td><td><button class="btn success sm" onclick="approveTx(this, 'PR-000451')">Approve PR</button></td></tr>
+              <tr><td>TRF-000119</td><td>Inter-Warehouse Transfer</td><td>650 units</td><td>Warehouse Manager</td><td><span class="badge green">Passed SoD</span></td><td><button class="btn success sm" onclick="approveTx(this, 'TRF-000119')">Approve Transfer</button></td></tr>
+              <tr><td>ADJ-000091</td><td>Stock Variance Adjustment</td><td>350 KG Shrinkage</td><td>Auditor Review Required</td><td><span class="badge orange">Requires Auditor</span></td><td><button class="btn warn sm" onclick="approveTx(this, 'ADJ-000091')">Audit Review</button></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- AUDIT TRAIL -->
+      <div class="page" id="audit">
+        <div class="section-head">
+          <h2>Immutable System Audit Trail</h2>
+          <input class="search" placeholder="Search user, action, IP, ref..." onkeyup="filterTable(this)">
+        </div>
+        <div class="table-wrap" style="margin-bottom: 18px;">
+          <table class="table">
+            <thead>
+              <tr><th>Timestamp</th><th>User Account</th><th>Module & Action</th><th>Document Reference</th><th>IP / Workstation</th><th>Audit Result</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>14 Aug 2026 14:32:01</td><td>storekeeper01</td><td>POST GRN RECEIVING</td><td>GRN-000248</td><td>10.10.2.31 / STORE-PC-03</td><td><span class="badge green">Success (Immutable)</span></td></tr>
+              <tr><td>14 Aug 2026 14:10:45</td><td>manager02</td><td>APPROVE STOCK TRANSFER</td><td>TRF-000118</td><td>10.10.1.22 / LAPTOP-MGR</td><td><span class="badge green">Success (Immutable)</span></td></tr>
+              <tr><td>14 Aug 2026 13:44:12</td><td>auditor01</td><td>VIEW VARIANCE LOG</td><td>CC-00291</td><td>10.10.1.44 / AUDIT-PC</td><td><span class="badge blue">Logged View</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="notice">
+          🔒 <b>Control Assurance Policy:</b> Posted transactions cannot be edited or deleted. System adjustments require counter-balancing entries approved by authorized personnel.
+        </div>
+      </div>
+
+      <!-- REPORTS -->
+      <div class="page" id="reports">
+        <div class="section-head">
+          <h2>Reports & Regulatory Export Analytics</h2>
+          <button class="btn secondary" onclick="showToast('Generating consolidated PDF analytics report...')">Export All PDF</button>
+        </div>
+        <div class="grid three">
+          <div class="card">
+            <h3 style="font-size:14px; margin-bottom:6px;">Inventory Valuation</h3>
+            <p style="color:var(--text-muted); font-size:11px; margin-bottom:12px;">Valuation by FIFO, Weighted Average, and Standard Costing.</p>
+            <button class="btn secondary sm" onclick="showToast('Downloading Inventory Valuation Report')">Download Report</button>
+          </div>
+          <div class="card">
+            <h3 style="font-size:14px; margin-bottom:6px;">PSPTB Procurement Audit</h3>
+            <p style="color:var(--text-muted); font-size:11px; margin-bottom:12px;">Complete Requisition-to-PO compliance audit trail.</p>
+            <button class="btn secondary sm" onclick="showToast('Downloading PSPTB Audit Report')">Download Report</button>
+          </div>
+          <div class="card">
+            <h3 style="font-size:14px; margin-bottom:6px;">Commodity Crop Traceability</h3>
+            <p style="color:var(--text-muted); font-size:11px; margin-bottom:12px;">Lot tracking from farmer source to warehouse bin & customer.</p>
+            <button class="btn secondary sm" onclick="showToast('Downloading Crop Traceability Report')">Download Report</button>
+          </div>
+          <div class="card">
+            <h3 style="font-size:14px; margin-bottom:6px;">WRRB Capacity Utilization</h3>
+            <p style="color:var(--text-muted); font-size:11px; margin-bottom:12px;">National & facility storage capacity metrics for regulatory submission.</p>
+            <button class="btn secondary sm" onclick="showToast('Downloading WRRB Capacity Report')">Download Report</button>
+          </div>
+          <div class="card">
+            <h3 style="font-size:14px; margin-bottom:6px;">Stock Movement & Loss</h3>
+            <p style="color:var(--text-muted); font-size:11px; margin-bottom:12px;">Detailed ledger of receipts, issues, transfers, and shrinkage.</p>
+            <button class="btn secondary sm" onclick="showToast('Downloading Movement Ledger')">Download Report</button>
+          </div>
+          <div class="card">
+            <h3 style="font-size:14px; margin-bottom:6px;">Financial Statement (P&L)</h3>
+            <p style="color:var(--text-muted); font-size:11px; margin-bottom:12px;">Revenue, Cost of Goods Sold (COGS), expenses, and margin analysis.</p>
+            <button class="btn secondary sm" onclick="showToast('Downloading Financial P&L')">Download Report</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- INTEGRATIONS -->
+      <div class="page" id="integrations">
+        <div class="section-head">
+          <h2>API & Ecosystem Integrations</h2>
+          <button class="btn primary" onclick="openModal('Register API Webhook Integration', 'integrations')">+ Add Integration</button>
+        </div>
+        <div class="table-wrap">
+          <table class="table">
+            <thead>
+              <tr><th>Integration System</th><th>Operational Purpose</th><th>Integration Mode</th><th>Status</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>TRA Fiscalization API</td><td>Fiscal receipts & Tanzania Revenue tax compliance</td><td>REST API</td><td><span class="badge orange">Planned Integration</span></td></tr>
+              <tr><td>M-Pesa / Tigo Pesa Gateway</td><td>Mobile money payment collection & supplier disbursement</td><td>REST Webhook</td><td><span class="badge green">Active & Ready</span></td></tr>
+              <tr><td>E-commerce REST API</td><td>Real-time inventory stock synchronization across web stores</td><td>JSON API</td><td><span class="badge green">Active & Ready</span></td></tr>
+              <tr><td>WRRB Regulatory Portal</td><td>Automated national grain stock reporting to warehouse authority</td><td>Automated Batch API</td><td><span class="badge orange">Planned Integration</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- SETTINGS -->
+      <div class="page" id="settings">
+        <div class="section-head"><h2>Tenant Security & System Settings</h2></div>
+        <div class="grid equal-two">
+          <div class="card">
+            <h3 style="font-size:14px; margin-bottom:8px;">Role-Based Access Control (RBAC)</h3>
+            <p style="color:var(--text-muted); font-size:11px; margin-bottom:10px;">Enforces fine-grained permissions across Super Admin, Storekeeper, PSPTB Auditor, WRRB Inspector, Accountant, and Cashier.</p>
+            <span class="badge purple">Segregation of Duties Enforced</span>
+          </div>
+          <div class="card">
+            <h3 style="font-size:14px; margin-bottom:8px;">Multi-Tenant Isolation</h3>
+            <p style="color:var(--text-muted); font-size:11px; margin-bottom:10px;">Each registered enterprise or cooperative maintains isolated database records, user permissions, and custom business rules.</p>
+            <span class="badge green">Database Isolated</span>
+          </div>
+          <div class="card">
+            <h3 style="font-size:14px; margin-bottom:8px;">Offline Operation Sync</h3>
+            <p style="color:var(--text-muted); font-size:11px; margin-bottom:10px;">Enables offline POS sales and warehouse barcode scanning in remote rural facilities with automatic sync upon reconnection.</p>
+            <span class="badge blue">Offline Queue Active</span>
+          </div>
+          <div class="card">
+            <h3 style="font-size:14px; margin-bottom:8px;">Localization & Currency</h3>
+            <p style="color:var(--text-muted); font-size:11px; margin-bottom:10px;">Default currency: TZS (Tanzanian Shilling). Supports Kiswahili and English localized user interface.</p>
+            <span class="badge gray">TZS · Swahili/English</span>
+          </div>
+        </div>
+      </div>
+
+    </section>
+  </main>
+</div>
+
+<!-- DYNAMIC DIALOG MODAL -->
+<div class="modal" id="modal">
+  <div class="modal-box">
+    <div class="modal-head">
+      <h2 id="modalTitle">Create New Record</h2>
+      <button class="close" onclick="closeModal()">×</button>
+    </div>
+    <div class="formgrid" id="modalFields">
+      <!-- Dynamic Form Content Injected Here -->
+    </div>
+    <div class="actions" style="justify-content: flex-end; margin-top: 20px;">
+      <button class="btn secondary" onclick="closeModal()">Cancel</button>
+      <button class="btn primary" onclick="saveModalData()">Save Record</button>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST NOTIFICATION -->
+<div class="toast" id="toastBox">
+  <span id="toastMsg">Action executed successfully.</span>
+</div>
+
+<script>
+const pageTitles = {
+  dashboard: "Dashboard Overview",
+  command: "National Warehouse Command Centre",
+  warehouses: "Warehouses & Location Hierarchy",
+  inventory: "Inventory Control & SKUs",
+  receiving: "Receiving & Goods Received Notes (GRN)",
+  issuing: "Stock Issuing & Dispatch",
+  transfers: "Inter-Warehouse Transfers",
+  counting: "Stock Count & Reconciliation",
+  quality: "Quality Control & Lab Inspection",
+  procurement: "Procurement Management (PSPTB)",
+  sales: "Sales & POS Counter",
+  suppliers: "Partners & Suppliers Directory",
+  agriculture: "Agriculture & Commodity Supply Chain",
+  accounting: "Financial Event Posting Ledger",
+  approvals: "Workflow Approvals & SoD Checks",
+  audit: "Immutable System Audit Trail",
+  reports: "Reports & Regulatory Analytics",
+  integrations: "API & Ecosystem Integrations",
+  settings: "Tenant Security & Settings"
+};
+
+function go(pageId) {
+  document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
+  const targetPage = document.getElementById(pageId);
+  if (targetPage) {
+    targetPage.classList.add("active");
+  }
+  document.querySelectorAll(".nav button").forEach(b => {
+    b.classList.toggle("active", b.dataset.page === pageId);
+  });
+  document.getElementById("pageTitle").textContent = pageTitles[pageId] || pageId;
+  window.scrollTo(0, 0);
+}
+
+document.querySelectorAll(".nav button").forEach(b => {
+  b.onclick = () => go(b.dataset.page);
+});
+
+function openModal(title, context) {
+  document.getElementById("modalTitle").textContent = title;
+  const container = document.getElementById("modalFields");
+  
+  // Custom context-sensitive form fields
+  if (context === 'farmers') {
+    container.innerHTML = `
+      <div class="field"><label>Farmer Full Name</label><input placeholder="e.g. Juma Hamisi"></div>
+      <div class="field"><label>Location / District</label><input placeholder="e.g. Kilosa, Morogoro"></div>
+      <div class="field"><label>Phone Number (M-Pesa)</label><input placeholder="+255 7xx xxx xxx"></div>
+      <div class="field"><label>Primary Crop</label><select><option>Maize</option><option>Rice / Paddy</option><option>Dry Beans</option><option>Sunflower Seeds</option></select></div>
+      <div class="field full"><label>Cooperative Group</label><input placeholder="e.g. MOR-14 Cooperative"></div>
+    `;
+  } else if (context === 'lots') {
+    container.innerHTML = `
+      <div class="field"><label>Lot Reference</label><input value="AGR-26-0089" readonly></div>
+      <div class="field"><label>Commodity Crop</label><select><option>Maize Grain</option><option>Dry Beans</option><option>Coffee</option></select></div>
+      <div class="field"><label>Received Quantity (MT)</label><input type="number" placeholder="100"></div>
+      <div class="field"><label>Moisture Content (%)</label><input type="number" step="0.1" placeholder="13.2"></div>
+      <div class="field"><label>Destination Warehouse</label><select><option>Morogoro Main</option><option>Dodoma Hub</option></select></div>
+      <div class="field"><label>Lab Inspection Status</label><select><option>Pass (Grade A)</option><option>QC Hold (High Moisture)</option></select></div>
+    `;
+  } else {
+    container.innerHTML = `
+      <div class="field"><label>Document Reference</label><input placeholder="Auto-generated (e.g. PR-00452)" readonly></div>
+      <div class="field"><label>Department / Facility</label><input placeholder="Enter department name"></div>
+      <div class="field"><label>Target Warehouse</label><select><option>Morogoro Main</option><option>Dar Distribution</option><option>Dodoma Hub</option></select></div>
+      <div class="field"><label>Item / SKU Reference</label><input placeholder="Search product or SKU..."></div>
+      <div class="field"><label>Quantity</label><input type="number" placeholder="0"></div>
+      <div class="field"><label>Unit of Measure</label><select><option>Bags (50kg)</option><option>Metric Tons (MT)</option><option>Units / Pieces</option><option>Cartons</option></select></div>
+      <div class="field full"><label>Notes / Operational Justification</label><textarea placeholder="Provide detailed background notes..."></textarea></div>
+    `;
+  }
+
+  document.getElementById("modal").classList.add("show");
+}
+
+function closeModal() {
+  document.getElementById("modal").classList.remove("show");
+}
+
+function saveModalData() {
+  closeModal();
+  showToast("Record successfully created & recorded in audit log.");
+}
+
+function filterTable(input) {
+  let query = input.value.toLowerCase();
+  let table = input.closest(".page").querySelector("table");
+  if (!table) return;
+  [...table.querySelectorAll("tbody tr")].forEach(row => {
+    row.style.display = row.innerText.toLowerCase().includes(query) ? "" : "none";
+  });
+}
+
+function showToast(message) {
+  const toast = document.getElementById("toastBox");
+  document.getElementById("toastMsg").textContent = message;
+  toast.classList.add("show");
+  setTimeout(() => {
+    toast.classList.remove("show");
+  }, 3000);
+}
+
+function switchRole(role) {
+  const avatar = document.getElementById("avatarBadge");
+  if (role === 'PSPTB Auditor') avatar.textContent = 'PA';
+  else if (role === 'WRRB Inspector') avatar.textContent = 'WI';
+  else if (role === 'Storekeeper') avatar.textContent = 'SK';
+  else avatar.textContent = 'HU';
+  showToast(`Switched active view session to: ${role}`);
+}
+
+function approveTx(btn, ref) {
+  btn.textContent = "Approved ✓";
+  btn.className = "btn secondary sm";
+  btn.disabled = true;
+  showToast(`Transaction ${ref} approved & passed Segregation of Duties check.`);
+}
+</script>
+
+</body>
+</html>
